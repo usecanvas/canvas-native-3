@@ -22,7 +22,7 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^{{PREFIX_OPEN}}(?<type>[a-z\-]+)(?:\{{PARAMETERS_START}}(?<parameters>(?:[a-z\-]+{{PARAMETER_KV_SEPARATOR}}[^,]+{{PARAMETER_SEPARATOR}}?)+))?{{PREFIX_CLOSE}}(?<content>.*)$
+^{{PREFIX_OPEN}}(?<type>[a-z\-]+)(?:\\{{PARAMETERS_START}}(?<parameters>(?:[a-z\-]+{{PARAMETER_KV_SEPARATOR}}[^,]+{{PARAMETER_SEPARATOR}}?)+))?{{PREFIX_CLOSE}}(?<content>.*)$
 ```
 
 Or, more readably:
