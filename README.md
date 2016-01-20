@@ -36,6 +36,30 @@ In a line, the `type` seen above is a name consisting of lowercase letters
 `,`-separated list of key-value pairs of the format
 `key:value`. **Note:** This format will change before
 this specification is complete.
+### Blockquote Line
+
+A line of a quote pulled from an outside source.
+
+#### Parameters
+
+This type has no parameters.
+
+#### Example
+
+##### Markdown
+
+```
+> Hello, world!
+```
+
+##### Native
+
+```
+⧙blockquote-line⧘Foo bar
+```
+
+---
+
 ### Checklist Item
 
 A checklist item represents an item in a checklist. It can be nested, and may or may not be checked.

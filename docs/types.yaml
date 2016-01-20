@@ -1,3 +1,9 @@
+- title: Blockquote Line
+  description: >
+    A line of a quote pulled from an outside source.
+  type: blockquote-line
+  examples:
+    markdown: "> Hello, world!"
 - title: Checklist Item
   description: >
     A checklist item represents an item in a checklist. It can be nested, and
