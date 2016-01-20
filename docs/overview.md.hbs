@@ -22,16 +22,17 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^⧙(?<type>[a-z\-]+)(?:\|(?<parameters>(?:[a-z\-]+:[^,]+,?)+))?⧘(?<content>.*)$
+^{{PREFIX_OPEN}}(?<type>[a-z\-]+)(?:\{{PARAMETERS_START}}(?<parameters>(?:[a-z\-]+{{PARAMETER_KV_SEPARATOR}}[^,]+{{PARAMETER_SEPARATOR}}?)+))?{{PREFIX_CLOSE}}(?<content>.*)$
 ```
 
 Or, more readably:
 
 ```
-⧙${type}|${parameters}⧘${content}
+{{PREFIX_OPEN}}${type}{{PARAMETERS_START}}${parameters}{{PREFIX_CLOSE}}${content}
 ```
 
 In a line, the `type` seen above is a name consisting of lowercase letters
-`a-z` and dashes. The `parameters` property is a comma-separated list of
-key-value pairs of the format `key:value`. **Note:** This format will change
-before this specification is complete.
+`a-z` and dashes. The `parameters` property is a
+`{{PARAMETER_SEPARATOR}}`-separated list of key-value pairs of the format
+`key{{PARAMETER_KV_SEPARATOR}}value`. **Note:** This format will change before
+this specification is complete.

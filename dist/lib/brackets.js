@@ -4,9 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.wrap = wrap;
-var BRACKETS = ['⧙', '⧘'];
+var CONSTANTS = require('./constants.json');
 
-exports.default = BRACKETS;
 function wrap(text) {
-  return BRACKETS[0] + text + BRACKETS[1];
+  return CONSTANTS.PREFIX_OPEN + text + CONSTANTS.PREFIX_CLOSE;
 }

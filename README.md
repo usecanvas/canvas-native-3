@@ -22,7 +22,7 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^⧙(?<type>[a-z\-]+)(?:\|(?<parameters>(?:[a-z\-]+:[^,]+,?)+))?⧘(?<content>.*)$
+^⧙(?<type>[a-z\-]+)(?:{{PARAMETERS_START}}(?<parameters>(?:[a-z\-]+:[^,]+,?)+))?⧘(?<content>.*)$
 ```
 
 Or, more readably:
@@ -32,10 +32,10 @@ Or, more readably:
 ```
 
 In a line, the `type` seen above is a name consisting of lowercase letters
-`a-z` and dashes. The `parameters` property is a comma-separated list of
-key-value pairs of the format `key:value`. **Note:** This format will change
-before this specification is complete.
-
+`a-z` and dashes. The `parameters` property is a
+`,`-separated list of key-value pairs of the format
+`key:value`. **Note:** This format will change before
+this specification is complete.
 ### Checklist Item
 
 A checklist item represents an item in a checklist. It can be nested, and may or may not be checked.

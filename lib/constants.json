@@ -1,0 +1,7 @@
+{
+  "PREFIX_OPEN": "⧙",
+  "PREFIX_CLOSE": "⧘",
+  "PARAMETERS_START": "|",
+  "PARAMETER_KV_SEPARATOR": ":",
+  "PARAMETER_SEPARATOR": ","
+}

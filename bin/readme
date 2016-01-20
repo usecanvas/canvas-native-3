@@ -4,13 +4,17 @@
 
 require('babel-register');
 
-const Brackets = require('../lib/brackets');
-const FS       = require('fs');
-const Path     = require('path');
-const YAML     = require('yamljs');
+const CONSTANTS = require('../lib/constants.json');
+const Brackets  = require('../lib/brackets');
+const FS        = require('fs');
+const Hbs       = require('handlebars');
+const Path      = require('path');
+const YAML      = require('yamljs');
 
-const types    = YAML.load(Path.join(__dirname, '../docs/types.yaml'));
-const overview = FS.readFileSync(Path.join(__dirname, '../docs/overview.md'));
+const types       = YAML.load(Path.join(__dirname, '../docs/types.yaml'));
+const overviewTpl = Hbs.compile(
+  FS.readFileSync(Path.join(__dirname, '../docs/overview.md.hbs')).toString());
+const overview    = overviewTpl(CONSTANTS);
 
 let typesMarkdown = '';
 for (const type of types) {
@@ -29,7 +33,7 @@ for (const type of types) {
 }
 
 FS.writeFileSync(Path.join(__dirname, '../README.md'),
-   overview.toString()
+   overview
     .concat('\n')
     .concat(typesMarkdown));
 
@@ -47,20 +51,20 @@ function buildNativeParameters(parameters) {
     return '';
   }
 
-  let native = '|';
+  let native = CONSTANTS.PARAMETERS_START;
   if (parameters.required) {
     for (const parameter of parameters.required) {
-      native += `${parameter.name}:${parameter.example || buildNativeParameterValue(parameter)},`;
+      native += `${parameter.name}${CONSTANTS.PARAMETER_KV_SEPARATOR}${parameter.example || buildNativeParameterValue(parameter)},`;
     }
   }
 
   if (parameters.optional) {
     for (const parameter of parameters.optional) {
-      native += `${parameter.name}:${parameter.example || buildNativeParameterValue(parameter)},`;
+      native += `${parameter.name}${CONSTANTS.PARAMETER_KV_SEPARATOR}${parameter.example || buildNativeParameterValue(parameter)},`;
     }
   }
 
-  return native.replace(/,$/, '');
+  return native.replace(new RegExp(`\\${CONSTANTS.PARAMETER_SEPARATOR}$`), '');
 }
 
 function buildNativeParameterValue(parameter) {
