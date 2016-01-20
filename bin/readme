@@ -1,0 +1,96 @@
+#!/usr/bin/env node
+
+'use strict';
+
+require('babel-register');
+
+const Brackets = require('../lib/brackets');
+const FS       = require('fs');
+const Path     = require('path');
+const YAML     = require('yamljs');
+
+const types    = YAML.load(Path.join(__dirname, '../docs/types.yaml'));
+const overview = FS.readFileSync(Path.join(__dirname, '../docs/overview.md'));
+
+let typesMarkdown = '';
+for (const type of types) {
+  typesMarkdown += makeString(4, `
+    ### ${type.title}
+
+    ${type.description}
+    #### Parameters
+
+    ${formatParameters(type.parameters)}
+    #### Example
+
+    ${formatExamples(type)}
+
+    ---`) + '\n\n';
+}
+
+FS.writeFileSync(Path.join(__dirname, '../README.md'),
+   overview.toString()
+    .concat('\n')
+    .concat(typesMarkdown));
+
+function formatExamples(type) {
+  let markdown = ''
+  let didMarkdown;
+
+  if (type.examples.markdown) {
+    didMarkdown = true;
+    markdown += makeString(6, `
+      ##### Markdown
+
+      \`\`\`
+      ${type.examples.markdown}
+      \`\`\``);
+  }
+
+  if (type.examples.native) {
+    markdown += (didMarkdown ? '\n\n' : '') + makeString(6, `
+      ##### Native
+
+      \`\`\`
+      ${type.examples.native}
+      \`\`\``);
+  }
+
+  return markdown;
+}
+
+function formatParameters(parameters) {
+  if (!parameters) {
+    return 'This type has no parameters.\n';
+  }
+
+  let markdown = '';
+  let didRequired;
+
+  if (parameters.required) {
+    didRequired = true;
+    markdown += '##### Required\n\n';
+
+    for (const parameter of parameters.required) {
+      markdown += `- \`${parameter.name}\` (${parameter.type}) - ${parameter.description}\n`;
+    }
+  }
+
+  if (parameters.optional) {
+    markdown += `${didRequired ? '\n' : ''}##### Optional\n\n`;
+
+    for (const parameter of parameters.optional) {
+      markdown += `- \`${parameter.name}\` (${parameter.type}) - ${parameter.description}\n`;
+    }
+  }
+
+  return markdown;
+}
+
+function makeString(spaces, string) {
+  return string
+    .split('\n')
+    .map(line => line.replace(new RegExp(`^ {${spaces}}`), ''))
+    .join('\n')
+    .trim();
+}

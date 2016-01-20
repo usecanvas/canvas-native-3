@@ -1,0 +1,110 @@
+- title: Checklist Item
+  description: >
+    A checklist item represents an item in a checklist. It can be nested, and
+    may or may not be checked.
+  type: checklist-item
+  parameters:
+    required:
+      - name: level
+        type: number
+        description: The level of nesting of this checklist item, from 1 to 6
+      - name: complete
+        type: boolean
+        description: Whether this item is complete
+  examples:
+    markdown: - [ ] Buy eggs
+- title: Code Line
+  description: >
+    A code line represents a line of code, typically in a block of other lines
+    of code.
+  type: code-line
+  parameters:
+    optional:
+      - name: language
+        type: string
+        example: ruby
+        description: The language the code line is written in
+  examples:
+    markdown: helloWorld();
+- title: Heading
+  description: >
+    A heading represents a line of heading text at a specific level, from one
+    to six.
+  type: heading
+  parameters:
+    required:
+      - name: level
+        type: number
+        description: The level of heading this is, from 1 to 6
+  examples:
+    markdown: "# Section Title"
+- title: Horizontal Rule
+  description: >
+    A horizontal rule represents a visual horizontal separator in a document.
+  type: horizontal-rule
+  examples:
+    markdown: ---
+- title: Image
+  description: >
+    An image represents a visual image embedded in a document.
+  type: image
+  parameters:
+    optional:
+      - name: width
+        type: number
+        example: 800
+        description: The width, in pixels, of the image
+      - name: height
+        type: number
+        example: 600
+        description: The height, in pixels, of the image
+      - name: alt-text
+        type: string
+        description: The alt text to display on top of the image
+      - name: title
+        type: string
+        description: The title of the image
+  examples:
+    markdown: ![Alt text](https://example.com/image.png "Title")
+- title: Link Definition
+  description: >
+    A line that defines a link referred to elsewhere in the document.
+  type: link-definition
+  examples:
+    markdown: "[Google]: https://www.google.com"
+    native: ⧙link-definition⧘[Google]: https://www.google.com
+- title: Numbered List Item
+  description: >
+    An numbered list item represents an item in a list whose order is important.
+  type: numbered-list-item
+  parameters:
+    required:
+      - name: level
+        type: number
+        description: The level of nesting of this list item, from 1 to 6
+  examples:
+    markdown: 1. Chapter One
+- title: Paragraph
+  description: >
+    A plain paragraph of text.
+  type: paragraph
+  examples:
+    markdown: This is a paragraph.
+- title: Title
+  description: >
+    The title of a document, which comes from a level 1 header at the very
+    beginning of parsed Markdown, if one is present.
+  type: title
+  examples:
+    markdown: # Title
+- title: Bullet List Item
+  description: >
+    A bullet list item represents an item in a bullet list.
+  type: bullet-list-item
+  parameters:
+    required:
+      - name: level
+        type: number
+        description: The level of nesting of this list item, from 1 to 6
+  examples:
+    markdown: - Foo

@@ -1,0 +1,14 @@
+{
+  "opts": {
+    "destination": "./out/",
+    "package": "package.json",
+    "readme": "README.md",
+    "template": "node_modules/loke-jsdoc-theme"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
+  }
+}
