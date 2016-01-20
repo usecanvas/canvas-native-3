@@ -65,7 +65,7 @@
         type: string
         description: The title of the image
   examples:
-    markdown: ![Alt text](https://example.com/image.png "Title")
+    markdown: "![Alt text](https://example.com/image.png \"Title\")"
 - title: Link Definition
   description: >
     A line that defines a link referred to elsewhere in the document.

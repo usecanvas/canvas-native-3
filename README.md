@@ -55,6 +55,12 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 - [ ] Buy eggs
 ```
 
+##### Native
+
+```
+⧙checklist-item|level:1,complete:f⧘Foo bar
+```
+
 ---
 
 ### Code Line
@@ -73,6 +79,12 @@ A code line represents a line of code, typically in a block of other lines of co
 
 ```
 helloWorld();
+```
+
+##### Native
+
+```
+⧙code-line|language:ruby⧘Foo bar
 ```
 
 ---
@@ -95,6 +107,12 @@ A heading represents a line of heading text at a specific level, from one to six
 # Section Title
 ```
 
+##### Native
+
+```
+⧙heading|level:1⧘Foo bar
+```
+
 ---
 
 ### Horizontal Rule
@@ -111,6 +129,12 @@ This type has no parameters.
 
 ```
 ---
+```
+
+##### Native
+
+```
+⧙horizontal-rule⧘Foo bar
 ```
 
 ---
@@ -130,7 +154,17 @@ An image represents a visual image embedded in a document.
 
 #### Example
 
+##### Markdown
 
+```
+![Alt text](https://example.com/image.png "Title")
+```
+
+##### Native
+
+```
+⧙image|width:800,height:600,alt-text:foo,title:foo⧘Foo bar
+```
 
 ---
 
@@ -176,6 +210,12 @@ An numbered list item represents an item in a list whose order is important.
 1. Chapter One
 ```
 
+##### Native
+
+```
+⧙numbered-list-item|level:1⧘Foo bar
+```
+
 ---
 
 ### Paragraph
@@ -194,6 +234,12 @@ This type has no parameters.
 This is a paragraph.
 ```
 
+##### Native
+
+```
+⧙paragraph⧘Foo bar
+```
+
 ---
 
 ### Title
@@ -206,7 +252,11 @@ This type has no parameters.
 
 #### Example
 
+##### Native
 
+```
+⧙title⧘Foo bar
+```
 
 ---
 
@@ -226,6 +276,12 @@ A bullet list item represents an item in a bullet list.
 
 ```
 - Foo
+```
+
+##### Native
+
+```
+⧙bullet-list-item|level:1⧘Foo bar
 ```
 
 ---

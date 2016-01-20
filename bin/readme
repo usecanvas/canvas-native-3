@@ -33,6 +33,49 @@ FS.writeFileSync(Path.join(__dirname, '../README.md'),
     .concat('\n')
     .concat(typesMarkdown));
 
+function buildNative(type) {
+  return makeString(4, `
+    ##### Native
+
+    \`\`\`
+    ${Brackets.wrap(type.type + buildNativeParameters(type.parameters))}Foo bar
+    \`\`\``);
+}
+
+function buildNativeParameters(parameters) {
+  if (!parameters) {
+    return '';
+  }
+
+  let native = '|';
+  if (parameters.required) {
+    for (const parameter of parameters.required) {
+      native += `${parameter.name}:${parameter.example || buildNativeParameterValue(parameter)},`;
+    }
+  }
+
+  if (parameters.optional) {
+    for (const parameter of parameters.optional) {
+      native += `${parameter.name}:${parameter.example || buildNativeParameterValue(parameter)},`;
+    }
+  }
+
+  return native.replace(/,$/, '');
+}
+
+function buildNativeParameterValue(parameter) {
+  switch (parameter.type) {
+    case 'number':
+      return 1;
+    case 'boolean':
+      return 'f';
+    case 'string':
+      return 'foo'
+    default:
+      throw new Error(`Unrecognized parameter type: "${parameter.type}"`);
+  }
+}
+
 function formatExamples(type) {
   let markdown = ''
   let didMarkdown;
@@ -54,6 +97,8 @@ function formatExamples(type) {
       \`\`\`
       ${type.examples.native}
       \`\`\``);
+  } else {
+    markdown += (didMarkdown ? '\n\n' : '') + buildNative(type);
   }
 
   return markdown;
