@@ -4,8 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.wrap = wrap;
-var CONSTANTS = require('./constants.json');
+
+var _constants = require('./constants.json');
+
+var _constants2 = _interopRequireDefault(_constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function wrap(text) {
-  return CONSTANTS.PREFIX_OPEN + text + CONSTANTS.PREFIX_CLOSE;
+  return _constants2.default.PREFIX_OPEN + text + _constants2.default.PREFIX_CLOSE;
 }

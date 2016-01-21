@@ -24,6 +24,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**
+ * A line representing a paragraph in a document
+ *
+ * @class Paragraph
+ * @extends Type
+ */
+
 var Paragraph = function (_Type) {
   _inherits(Paragraph, _Type);
 
@@ -35,14 +42,31 @@ var Paragraph = function (_Type) {
 
   _createClass(Paragraph, null, [{
     key: 'markdownPattern',
+
+    /**
+     * @static
+     * @see Type.markdownPattern
+     */
     get: function get() {
       return (0, _xregexp2.default)('^(?<content>.*)$');
     }
+
+    /**
+     * @static
+     * @see Type.nativePattern
+     */
+
   }, {
     key: 'nativePattern',
     get: function get() {
       return (0, _xregexp2.default)('^\n      (?<source>\n        (?<prefix>  ' + (0, _brackets.wrap)('paragraph') + ')\n        (?<content> .*))', 'x');
     }
+
+    /**
+     * @static
+     * @see Type.type
+     */
+
   }, {
     key: 'type',
     get: function get() {

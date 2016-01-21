@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+mocha --compilers js:babel-register "test/**/*-test.js"
+eslint lib test

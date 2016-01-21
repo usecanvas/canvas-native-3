@@ -47,7 +47,7 @@
     "no-throw-literal": 2,
     "no-undef": 2,
     "no-unused-expressions": 2,
-    "no-unused-vars": [2, { "varsIgnorePattern": "^Ignore" }],
+    "no-unused-vars": [2, { "argsIgnorePattern": "^_.*" }],
     "no-useless-call": 2,
     "no-useless-concat": 1 ,
     "no-with": 2,
