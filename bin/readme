@@ -56,7 +56,7 @@ function buildNative(type) {
 
 function buildNativeParameters(parameters) {
   if (!parameters) {
-    return '';
+    return '{}';
   }
 
   let native = {};

@@ -58,7 +58,7 @@ This type has no parameters.
 ##### Native
 
 ```
-q||Foo bar
+q|{}|Foo bar
 ```
 
 ---
@@ -161,7 +161,7 @@ This type has no parameters.
 ##### Native
 
 ```
-r||Foo bar
+r|{}|Foo bar
 ```
 
 ---
@@ -267,7 +267,7 @@ This is a paragraph.
 ##### Native
 
 ```
-p||Foo bar
+p|{}|Foo bar
 ```
 
 ---
@@ -285,7 +285,7 @@ This type has no parameters.
 ##### Native
 
 ```
-t||Foo bar
+t|{}|Foo bar
 ```
 
 ---
