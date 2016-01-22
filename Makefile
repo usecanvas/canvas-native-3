@@ -12,5 +12,5 @@ dist: lib/types/index.json "lib/**/*"
 lib/types/index.json: docs/types.yaml
 	yaml2json --pretty docs/types.yaml > lib/types/index.json
 
-README.md: docs/types.yaml
+README.md: docs/overview.md.hbs bin/readme docs/types.yaml
 	bin/readme

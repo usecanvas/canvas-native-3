@@ -27,7 +27,7 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^(?<typeKey>[a-z]){{SEPARATOR}}(?<metadata>{.*?}){{SEPARATOR}}(?<content>.*)$
+^(?<typeKey>[a-z])\|(?<metadata>{.*?})\|(?<content>.*)$
 ```
 
 Or, more readably:

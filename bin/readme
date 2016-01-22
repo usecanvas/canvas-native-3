@@ -19,7 +19,7 @@ const SEPARATOR = CONSTANTS.READABLE_SEPARATOR;
 const types       = YAML.load(Path.join(__dirname, '../docs/types.yaml'));
 const overviewTpl = Hbs.compile(
   FS.readFileSync(Path.join(__dirname, '../docs/overview.md.hbs')).toString());
-const overview    = overviewTpl({ SEPARATOR });
+const overview    = overviewTpl({ SEPARATOR: SEPARATOR });
 
 // Validate that typeKeys are unique
 assert.equal(types.length, _.uniqBy(types, 'typeKey').length);
