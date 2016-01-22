@@ -85,7 +85,7 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 ##### Native
 
 ```
-undefined|{"level":1,"complete":"f"}|Foo bar
+c|{"level":1,"complete":"f"}|Foo bar
 ```
 
 ---

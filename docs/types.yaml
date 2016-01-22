@@ -10,6 +10,7 @@
     A checklist item represents an item in a checklist. It can be nested, and
     may or may not be checked.
   type: checklist-item
+  typeKey: c
   parameters:
     required:
       - name: level

@@ -22,7 +22,7 @@ const overviewTpl = Hbs.compile(
 const overview    = overviewTpl({ SEPARATOR: SEPARATOR });
 
 // Validate that typeKeys are unique
-assert.equal(types.length, _.uniqBy(types, 'typeKey').length);
+assert.equal(types.length, _.compact(_.uniqBy(types, 'typeKey')).length);
 
 let typesMarkdown = '';
 for (const type of types) {
