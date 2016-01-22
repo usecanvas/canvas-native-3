@@ -39,15 +39,6 @@ var Heading = function (_Type) {
   }
 
   _createClass(Heading, [{
-    key: 'toJSON',
-    value: function toJSON() {
-      return {
-        type: this.type,
-        content: this.content,
-        meta: this.meta
-      };
-    }
-  }, {
     key: 'toMarkdown',
     value: function toMarkdown(_prev, next) {
       var hashes = '';

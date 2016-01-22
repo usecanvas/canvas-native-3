@@ -2,7 +2,6 @@ blockquote-line:
   title: Blockquote Line
   description: >
     A line of a quote pulled from an outside source.
-  groupType: blockquote
   typeKey: bq
   examples:
     markdown: "> Hello, world!"

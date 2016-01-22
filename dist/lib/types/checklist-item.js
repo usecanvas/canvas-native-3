@@ -39,15 +39,6 @@ var ChecklistItem = function (_Type) {
   }
 
   _createClass(ChecklistItem, [{
-    key: 'toJSON',
-    value: function toJSON() {
-      return {
-        type: this.type,
-        content: this.content,
-        meta: this.meta
-      };
-    }
-  }, {
     key: 'toMarkdown',
     value: function toMarkdown(prev, next) {
       var md = '- [' + (this.meta.checked ? 'x' : ' ') + '] ' + this.content;

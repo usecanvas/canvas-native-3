@@ -53,7 +53,11 @@ var Type = function () {
      *   form
      */
     value: function toJSON() {
-      throw new Error('Must implement `toJSON` for each type');
+      return {
+        type: this.type,
+        content: this.content,
+        meta: this.meta
+      };
     }
 
     /**

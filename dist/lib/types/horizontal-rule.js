@@ -23,39 +23,25 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * A line representing a line of code
+ * A line representing a horizontal rule
  *
- * @class CodeLine
+ * @class HorizontalRule
  * @extends Type
  */
 
-var CodeLine = function (_Type) {
-  _inherits(CodeLine, _Type);
+var HorizontalRule = function (_Type) {
+  _inherits(HorizontalRule, _Type);
 
-  function CodeLine() {
-    _classCallCheck(this, CodeLine);
+  function HorizontalRule() {
+    _classCallCheck(this, HorizontalRule);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(CodeLine).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(HorizontalRule).apply(this, arguments));
   }
 
-  _createClass(CodeLine, [{
+  _createClass(HorizontalRule, [{
     key: 'toMarkdown',
-    value: function toMarkdown(prev, next) {
-      var language = this.meta.language || '';
-
-      if (!prev || prev.type !== this.type) {
-        return '```' + language + '\n' + this.content;
-      }
-
-      if (!next) {
-        return this.content + '\n```';
-      }
-
-      if (next && next.type !== this.type) {
-        return this.content + '\n```\n';
-      }
-
-      return this.content;
+    value: function toMarkdown(_prev, next) {
+      return '---' + (next ? '\n' : '');
     }
 
     /**
@@ -66,7 +52,7 @@ var CodeLine = function (_Type) {
   }], [{
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^(?<content>.*)$');
+      return (0, _xregexp2.default)('^(?:- ?){3,}(?<content>)$');
     }
 
     /**
@@ -77,11 +63,11 @@ var CodeLine = function (_Type) {
   }, {
     key: 'type',
     get: function get() {
-      return 'code-line';
+      return 'horizontal-rule';
     }
   }]);
 
-  return CodeLine;
+  return HorizontalRule;
 }(_type2.default);
 
-exports.default = CodeLine;
+exports.default = HorizontalRule;

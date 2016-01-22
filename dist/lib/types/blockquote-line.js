@@ -39,14 +39,6 @@ var BlockquoteLine = function (_Type) {
   }
 
   _createClass(BlockquoteLine, [{
-    key: 'toJSON',
-    value: function toJSON() {
-      return {
-        type: this.type,
-        content: this.content
-      };
-    }
-  }, {
     key: 'toMarkdown',
     value: function toMarkdown(prev, next) {
       var md = '> ' + this.content;

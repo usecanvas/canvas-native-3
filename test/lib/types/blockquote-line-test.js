@@ -29,7 +29,8 @@ describe('Type: BlockquoteLine', () => {
       const line = BlockquoteLine.matchMarkdown('> Foo');
       expect(line.toJSON()).to.eql({
         type: 'blockquote-line',
-        content: 'Foo'
+        content: 'Foo',
+        meta: {},
       });
     });
   });
