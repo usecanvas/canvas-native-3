@@ -47,22 +47,22 @@ describe('Type: ChecklistItem', () => {
 
     beforeEach(() => {
       line = ChecklistItem
-        .matchNative(ChecklistItem.buildNative('Foo', { checked: true }));
+        .matchNative(ChecklistItem.buildNative('Foo', { checked: false }));
     });
 
     it('appends a new line at the end of a group', () => {
       expect(line.toMarkdown(null, Paragraph.matchMarkdown('Foo')))
-        .to.eq('- [x] Foo\n');
+        .to.eq('- [ ] Foo\n');
     });
 
     it('does not append a newline mid-list', () => {
       expect(line.toMarkdown(null, line))
-        .to.eql('- [x] Foo');
+        .to.eql('- [ ] Foo');
     });
 
     it('does not append a new line at the end of the document', () => {
       expect(line.toMarkdown(null, null))
-        .to.eql('- [x] Foo');
+        .to.eql('- [ ] Foo');
     });
   });
 });
