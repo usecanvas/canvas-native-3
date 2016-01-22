@@ -23,35 +23,36 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * A line representing a blockquote in a document
+ * A line representing an item in a checklist
  *
- * @class BlockquoteLine
+ * @class ChecklistItem
  * @extends Type
  */
 
-var BlockquoteLine = function (_Type) {
-  _inherits(BlockquoteLine, _Type);
+var ChecklistItem = function (_Type) {
+  _inherits(ChecklistItem, _Type);
 
-  function BlockquoteLine() {
-    _classCallCheck(this, BlockquoteLine);
+  function ChecklistItem() {
+    _classCallCheck(this, ChecklistItem);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BlockquoteLine).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChecklistItem).apply(this, arguments));
   }
 
-  _createClass(BlockquoteLine, [{
+  _createClass(ChecklistItem, [{
     key: 'toJSON',
     value: function toJSON() {
       return {
         type: this.type,
-        content: this.content
+        content: this.content,
+        meta: this.meta
       };
     }
   }, {
     key: 'toMarkdown',
     value: function toMarkdown(prev, next) {
-      var md = '> ' + this.content;
+      var md = '- [' + (this.meta.checked ? 'x' : ' ') + '] ' + this.content;
 
-      if (next) {
+      if (next && next.type !== this.type) {
         return md + '\n';
       }
 
@@ -64,9 +65,30 @@ var BlockquoteLine = function (_Type) {
      */
 
   }], [{
+    key: 'matchMarkdown',
+
+    /**
+     * @static
+     * @method
+     */
+    value: function matchMarkdown(markdown) {
+      var match = _xregexp2.default.exec(markdown, this.markdownPattern);
+
+      if (!match) {
+        return null;
+      }
+
+      var meta = {
+        checked: !!match.meta_check.trim()
+      };
+
+      var nativeString = this.buildNative(match.content, meta);
+      return this.matchNative(nativeString);
+    }
+  }, {
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^> (?<content>.*)');
+      return (0, _xregexp2.default)('^ *[\\-\\+\\*] \\[(?<meta_check>[xX ])\\] (?<content>.*)');
     }
 
     /**
@@ -77,11 +99,11 @@ var BlockquoteLine = function (_Type) {
   }, {
     key: 'type',
     get: function get() {
-      return 'blockquote-line';
+      return 'checklist-item';
     }
   }]);
 
-  return BlockquoteLine;
+  return ChecklistItem;
 }(_type2.default);
 
-exports.default = BlockquoteLine;
+exports.default = ChecklistItem;

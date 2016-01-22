@@ -26,6 +26,7 @@ code-line:
   description: >
     A code line represents a line of code, typically in a block of other lines
     of code.
+  groupType: code
   typeKey: co
   parameters:
     optional:

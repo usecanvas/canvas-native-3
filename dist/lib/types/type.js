@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _ = require('.');
+
+var _2 = _interopRequireDefault(_);
+
 var _xregexp = require('xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
@@ -32,6 +36,7 @@ var Type = function () {
   function Type(match) {
     _classCallCheck(this, Type);
 
+    this.meta = JSON.parse(match.meta);
     this.match = match;
   }
 
@@ -80,7 +85,7 @@ var Type = function () {
   }, {
     key: 'groupType',
     get: function get() {
-      return 'canvas';
+      return _2.default[this.type].groupType || 'canvas';
     }
 
     /**
@@ -164,7 +169,16 @@ var Type = function () {
         return null;
       }
 
-      var nativeString = this.buildNative(match.content);
+      var meta = {};
+      for (var key in match) {
+        if (!match.hasOwnProperty(key) || !/^meta_.+$/.test(key)) {
+          continue;
+        }
+
+        meta[key.split('_')[1]] = match[key];
+      }
+
+      var nativeString = this.buildNative(match.content, meta);
       return this.matchNative(nativeString);
     }
 
@@ -200,7 +214,7 @@ var Type = function () {
   }, {
     key: 'typeKey',
     get: function get() {
-      throw new Error('Must implement `typeKey` for each type');
+      return _2.default[this.type].typeKey;
     }
 
     /**

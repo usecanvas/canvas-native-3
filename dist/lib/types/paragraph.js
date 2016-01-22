@@ -59,17 +59,6 @@ var Paragraph = function (_Type) {
     get: function get() {
       return 'paragraph';
     }
-
-    /**
-     * @static
-     * @see Type.typeKey
-     */
-
-  }, {
-    key: 'typeKey',
-    get: function get() {
-      return 'p';
-    }
   }]);
 
   return Paragraph;

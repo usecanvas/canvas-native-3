@@ -32,6 +32,7 @@
   "code-line": {
     "title": "Code Line",
     "description": "A code line represents a line of code, typically in a block of other lines of code.\n",
+    "groupType": "code",
     "typeKey": "co",
     "parameters": {
       "optional": [
