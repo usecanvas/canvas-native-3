@@ -22,20 +22,28 @@ const overviewTpl = Hbs.compile(
 const overview    = overviewTpl({ SEPARATOR: SEPARATOR });
 
 // Validate that typeKeys are unique
-assert.equal(types.length, _.compact(_.uniqBy(types, 'typeKey')).length);
+assert.equal(Object.keys(types).length,
+  _.compact(_.uniqBy(_.values(types), 'typeKey')).length);
 
 let typesMarkdown = '';
-for (const type of types) {
-  typesMarkdown += makeString(4, `
-    ### ${type.title}
+for (const type in types) {
+  if (!types.hasOwnProperty(type)) {
+    continue;
+  }
 
-    ${type.description}
+  const lineType = types[type];
+  lineType.type = type;
+
+  typesMarkdown += makeString(4, `
+    ### ${lineType.title}
+
+    ${lineType.description}
     #### Parameters
 
-    ${formatParameters(type.parameters)}
+    ${formatParameters(lineType.parameters)}
     #### Example
 
-    ${formatExamples(type)}
+    ${formatExamples(lineType)}
 
     ---`) + '\n\n';
 }

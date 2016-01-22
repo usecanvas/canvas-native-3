@@ -1,18 +1,16 @@
-[
-  {
+{
+  "blockquote-line": {
     "title": "Blockquote Line",
     "description": "A line of a quote pulled from an outside source.\n",
-    "type": "blockquote-line",
-    "typeKey": "q",
+    "typeKey": "bq",
     "examples": {
       "markdown": "> Hello, world!"
     }
   },
-  {
+  "checklist-item": {
     "title": "Checklist Item",
     "description": "A checklist item represents an item in a checklist. It can be nested, and may or may not be checked.\n",
-    "type": "checklist-item",
-    "typeKey": "c",
+    "typeKey": "cl",
     "parameters": {
       "required": [
         {
@@ -31,11 +29,10 @@
       "markdown": "- [ ] Buy eggs"
     }
   },
-  {
+  "code-line": {
     "title": "Code Line",
     "description": "A code line represents a line of code, typically in a block of other lines of code.\n",
-    "type": "code-line",
-    "typeKey": "o",
+    "typeKey": "co",
     "parameters": {
       "optional": [
         {
@@ -50,11 +47,10 @@
       "markdown": "helloWorld();"
     }
   },
-  {
+  "heading": {
     "title": "Heading",
     "description": "A heading represents a line of heading text at a specific level, from one to six.\n",
-    "type": "heading",
-    "typeKey": "h",
+    "typeKey": "hd",
     "parameters": {
       "required": [
         {
@@ -68,20 +64,18 @@
       "markdown": "# Section Title"
     }
   },
-  {
+  "horizontal-rule": {
     "title": "Horizontal Rule",
     "description": "A horizontal rule represents a visual horizontal separator in a document.\n",
-    "type": "horizontal-rule",
-    "typeKey": "r",
+    "typeKey": "hr",
     "examples": {
       "markdown": "---"
     }
   },
-  {
+  "image": {
     "title": "Image",
     "description": "An image represents a visual image embedded in a document.\n",
-    "type": "image",
-    "typeKey": "i",
+    "typeKey": "im",
     "parameters": {
       "optional": [
         {
@@ -112,11 +106,10 @@
       "markdown": "![Alt text](https://example.com/image.png \"Title\")"
     }
   },
-  {
+  "link-definition": {
     "title": "Link Definition",
     "description": "A line that defines a link referred to elsewhere in the document.\n",
-    "type": "link-definition",
-    "typeKey": "d",
+    "typeKey": "ld",
     "parameters": {
       "required": [
         {
@@ -135,11 +128,10 @@
       "markdown": "[Google]: https://www.google.com"
     }
   },
-  {
-    "title": "Numbered List Item",
-    "description": "An numbered list item represents an item in a list whose order is important.\n",
-    "type": "numbered-list-item",
-    "typeKey": "n",
+  "ordered-list-item": {
+    "title": "Ordered List Item",
+    "description": "An ordered list item represents an item in a list whose order is important.\n",
+    "typeKey": "ol",
     "parameters": {
       "required": [
         {
@@ -153,20 +145,18 @@
       "markdown": "1. Chapter One"
     }
   },
-  {
+  "paragraph": {
     "title": "Paragraph",
     "description": "A plain paragraph of text.\n",
-    "type": "paragraph",
-    "typeKey": "p",
+    "typeKey": "pg",
     "examples": {
       "markdown": "This is a paragraph."
     }
   },
-  {
+  "title": {
     "title": "Title",
     "description": "The title of a document, which comes from a level 1 header at the very beginning of parsed Markdown, if one is present.\n",
-    "type": "title",
-    "typeKey": "t",
+    "typeKey": "ti",
     "parameters": {
       "required": [
         {
@@ -180,11 +170,10 @@
       "markdown": null
     }
   },
-  {
-    "title": "Bullet List Item",
-    "description": "A bullet list item represents an item in a bullet list.\n",
-    "type": "bullet-list-item",
-    "typeKey": "b",
+  "unordered-list-item": {
+    "title": "Unordered List Item",
+    "description": "An unordered list item represents an item in an unordered list.\n",
+    "typeKey": "ul",
     "parameters": {
       "required": [
         {
@@ -198,4 +187,4 @@
       "markdown": "- Foo"
     }
   }
-]
+}

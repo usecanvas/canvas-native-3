@@ -36,8 +36,8 @@ Or, more readably:
 ${typeKey}|${metadata}|${content}
 ```
 
-In a line, the `typeKey` seen above is a typically single-character identifier
-for a specific line type. The `metadata` property is a JSON string containing
+In a line, the `typeKey` seen above is a typically two-character identifier for
+a specific line type. The `metadata` property is a JSON string containing
 information about the line.
 ### Blockquote Line
 
@@ -58,7 +58,7 @@ This type has no parameters.
 ##### Native
 
 ```
-q|{}|Foo bar
+bq|{}|Foo bar
 ```
 
 ---
@@ -85,7 +85,7 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 ##### Native
 
 ```
-c|{"level":1,"complete":"f"}|Foo bar
+cl|{"level":1,"complete":"f"}|Foo bar
 ```
 
 ---
@@ -111,7 +111,7 @@ helloWorld();
 ##### Native
 
 ```
-o|{"language":"ruby"}|Foo bar
+co|{"language":"ruby"}|Foo bar
 ```
 
 ---
@@ -137,7 +137,7 @@ A heading represents a line of heading text at a specific level, from one to six
 ##### Native
 
 ```
-h|{"level":1}|Foo bar
+hd|{"level":1}|Foo bar
 ```
 
 ---
@@ -161,7 +161,7 @@ This type has no parameters.
 ##### Native
 
 ```
-r|{}|Foo bar
+hr|{}|Foo bar
 ```
 
 ---
@@ -190,7 +190,7 @@ An image represents a visual image embedded in a document.
 ##### Native
 
 ```
-i|{"width":800,"height":600,"alt-text":"foo","title":"foo"}|Foo bar
+im|{"width":800,"height":600,"alt-text":"foo","title":"foo"}|Foo bar
 ```
 
 ---
@@ -217,14 +217,14 @@ A line that defines a link referred to elsewhere in the document.
 ##### Native
 
 ```
-d|{"name":"foo","url":"foo"}|Foo bar
+ld|{"name":"foo","url":"foo"}|Foo bar
 ```
 
 ---
 
-### Numbered List Item
+### Ordered List Item
 
-An numbered list item represents an item in a list whose order is important.
+An ordered list item represents an item in a list whose order is important.
 
 #### Parameters
 
@@ -243,7 +243,7 @@ An numbered list item represents an item in a list whose order is important.
 ##### Native
 
 ```
-n|{"level":1}|Foo bar
+ol|{"level":1}|Foo bar
 ```
 
 ---
@@ -267,7 +267,7 @@ This is a paragraph.
 ##### Native
 
 ```
-p|{}|Foo bar
+pg|{}|Foo bar
 ```
 
 ---
@@ -287,14 +287,14 @@ The title of a document, which comes from a level 1 header at the very beginning
 ##### Native
 
 ```
-t|{"version":1}|Foo bar
+ti|{"version":1}|Foo bar
 ```
 
 ---
 
-### Bullet List Item
+### Unordered List Item
 
-A bullet list item represents an item in a bullet list.
+An unordered list item represents an item in an unordered list.
 
 #### Parameters
 
@@ -313,7 +313,7 @@ A bullet list item represents an item in a bullet list.
 ##### Native
 
 ```
-b|{"level":1}|Foo bar
+ul|{"level":1}|Foo bar
 ```
 
 ---
