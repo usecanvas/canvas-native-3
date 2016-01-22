@@ -3,29 +3,26 @@ import Paragraph  from '../../../lib/types/paragraph';
 import { expect } from 'chai';
 
 describe('Type: CodeLine', () => {
-  [
-    ['matchNative', CodeLine.buildNative('Foo', { language: 'ruby' })],
-  ].forEach(([matchType, matchSource]) => {
-    describe(`.${matchType}`, () => {
-      let line;
+  describe('.matchNative', () => {
+    const matchSource = CodeLine.buildNative('Foo', { language: 'ruby' });
 
-      beforeEach(() => {
-        line = CodeLine[matchType](matchSource);
-      });
+    let line;
+    beforeEach(() => {
+      line = CodeLine.matchNative(matchSource);
+    });
 
-      it('has a source', () => {
-        expect(line.source).to
-          .eq(CodeLine.buildNative('Foo', { language: 'ruby' }));
-      });
+    it('has a source', () => {
+      expect(line.source).to
+        .eq(CodeLine.buildNative('Foo', { language: 'ruby' }));
+    });
 
-      it('has content', () => {
-        expect(line.content).to.eql('Foo');
-      });
+    it('has content', () => {
+      expect(line.content).to.eql('Foo');
+    });
 
-      it('has metadata', () => {
-        expect(line.meta).to.eql({
-          language: 'ruby',
-        });
+    it('has metadata', () => {
+      expect(line.meta).to.eql({
+        language: 'ruby',
       });
     });
   });
