@@ -118,6 +118,11 @@
     beginning of parsed Markdown, if one is present.
   type: title
   typeKey: t
+  parameters:
+    required:
+      - name: version
+        type: number
+        description: The version of the CanvasNative format this document uses
   examples:
     markdown: # Title
 - title: Bullet List Item

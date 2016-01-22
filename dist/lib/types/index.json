@@ -167,6 +167,15 @@
     "description": "The title of a document, which comes from a level 1 header at the very beginning of parsed Markdown, if one is present.\n",
     "type": "title",
     "typeKey": "t",
+    "parameters": {
+      "required": [
+        {
+          "name": "version",
+          "type": "number",
+          "description": "The version of the CanvasNative format this document uses"
+        }
+      ]
+    },
     "examples": {
       "markdown": null
     }

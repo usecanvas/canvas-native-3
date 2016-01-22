@@ -278,14 +278,16 @@ The title of a document, which comes from a level 1 header at the very beginning
 
 #### Parameters
 
-This type has no parameters.
+##### Required
+
+- `version` (number) - The version of the CanvasNative format this document uses
 
 #### Example
 
 ##### Native
 
 ```
-t|{}|Foo bar
+t|{"version":1}|Foo bar
 ```
 
 ---
