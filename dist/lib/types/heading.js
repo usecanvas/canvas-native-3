@@ -23,22 +23,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * A line representing a line of code
+ * A line representing a heading
  *
- * @class CodeLine
+ * @class Heading
  * @extends Type
  */
 
-var CodeLine = function (_Type) {
-  _inherits(CodeLine, _Type);
+var Heading = function (_Type) {
+  _inherits(Heading, _Type);
 
-  function CodeLine() {
-    _classCallCheck(this, CodeLine);
+  function Heading() {
+    _classCallCheck(this, Heading);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(CodeLine).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Heading).apply(this, arguments));
   }
 
-  _createClass(CodeLine, [{
+  _createClass(Heading, [{
     key: 'toJSON',
     value: function toJSON() {
       return {
@@ -103,7 +103,7 @@ var CodeLine = function (_Type) {
     }
   }]);
 
-  return CodeLine;
+  return Heading;
 }(_type2.default);
 
-exports.default = CodeLine;
+exports.default = Heading;

@@ -4,7 +4,7 @@ all: build README.md
 
 build: dist README.md
 
-dist: lib/types/index.json "lib/**/*"
+dist: lib/types/index.json lib/**/*
 	rm -rf dist/
 	$(BABEL) lib -d dist/lib
 	cp lib/types/index.json dist/lib/types/index.json
