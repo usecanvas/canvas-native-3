@@ -6,6 +6,11 @@ CanvasNative is a method of representing Canvas documents in a linear fashion
 This project comprises the specification and utilities for the CanvasNative
 format.
 
+## Documentation Note
+
+CanvasNative uses an invisible character to separate parts of its lines. For
+readability, the documentation replaces that character with `|`.
+
 ## Building
 
 A single command will build distribution code, and the README file:
@@ -22,20 +27,18 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^⧙(?<type>[a-z\-]+)(?:\|(?<parameters>(?:[a-z\-]+:[^,]+,?)+))?⧘(?<content>.*)$
+^(?<typeKey>[a-z]){{SEPARATOR}}(?<metadata>{.*?}){{SEPARATOR}}(?<content>.*)$
 ```
 
 Or, more readably:
 
 ```
-⧙${type}|${parameters}⧘${content}
+${typeKey}|${metadata}|${content}
 ```
 
-In a line, the `type` seen above is a name consisting of lowercase letters
-`a-z` and dashes. The `parameters` property is a
-`,`-separated list of key-value pairs of the format
-`key:value`. **Note:** This format will change before
-this specification is complete.
+In a line, the `typeKey` seen above is a typically single-character identifier
+for a specific line type. The `metadata` property is a JSON string containing
+information about the line.
 ### Blockquote Line
 
 A line of a quote pulled from an outside source.
@@ -55,7 +58,7 @@ This type has no parameters.
 ##### Native
 
 ```
-⧙blockquote-line⧘Foo bar
+q||Foo bar
 ```
 
 ---
@@ -82,7 +85,7 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 ##### Native
 
 ```
-⧙checklist-item|level:1,complete:f⧘Foo bar
+undefined|{"level":1,"complete":"f"}|Foo bar
 ```
 
 ---
@@ -108,7 +111,7 @@ helloWorld();
 ##### Native
 
 ```
-⧙code-line|language:ruby⧘Foo bar
+o|{"language":"ruby"}|Foo bar
 ```
 
 ---
@@ -134,7 +137,7 @@ A heading represents a line of heading text at a specific level, from one to six
 ##### Native
 
 ```
-⧙heading|level:1⧘Foo bar
+h|{"level":1}|Foo bar
 ```
 
 ---
@@ -158,7 +161,7 @@ This type has no parameters.
 ##### Native
 
 ```
-⧙horizontal-rule⧘Foo bar
+r||Foo bar
 ```
 
 ---
@@ -187,7 +190,7 @@ An image represents a visual image embedded in a document.
 ##### Native
 
 ```
-⧙image|width:800,height:600,alt-text:foo,title:foo⧘Foo bar
+i|{"width":800,"height":600,"alt-text":"foo","title":"foo"}|Foo bar
 ```
 
 ---
@@ -198,7 +201,10 @@ A line that defines a link referred to elsewhere in the document.
 
 #### Parameters
 
-This type has no parameters.
+##### Required
+
+- `name` (string) - The name of this link definition
+- `url` (string) - The URL that this link points to
 
 #### Example
 
@@ -211,7 +217,7 @@ This type has no parameters.
 ##### Native
 
 ```
-⧙link-definition⧘[Google]: https://www.google.com
+d|{"name":"foo","url":"foo"}|Foo bar
 ```
 
 ---
@@ -237,7 +243,7 @@ An numbered list item represents an item in a list whose order is important.
 ##### Native
 
 ```
-⧙numbered-list-item|level:1⧘Foo bar
+n|{"level":1}|Foo bar
 ```
 
 ---
@@ -261,7 +267,7 @@ This is a paragraph.
 ##### Native
 
 ```
-⧙paragraph⧘Foo bar
+p||Foo bar
 ```
 
 ---
@@ -279,7 +285,7 @@ This type has no parameters.
 ##### Native
 
 ```
-⧙title⧘Foo bar
+t||Foo bar
 ```
 
 ---
@@ -305,7 +311,7 @@ A bullet list item represents an item in a bullet list.
 ##### Native
 
 ```
-⧙bullet-list-item|level:1⧘Foo bar
+b|{"level":1}|Foo bar
 ```
 
 ---

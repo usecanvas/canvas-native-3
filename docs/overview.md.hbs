@@ -6,6 +6,11 @@ CanvasNative is a method of representing Canvas documents in a linear fashion
 This project comprises the specification and utilities for the CanvasNative
 format.
 
+## Documentation Note
+
+CanvasNative uses an invisible character to separate parts of its lines. For
+readability, the documentation replaces that character with `{{SEPARATOR}}`.
+
 ## Building
 
 A single command will build distribution code, and the README file:
@@ -22,17 +27,15 @@ In a CanvasNative document, an individual line is one of several types.
 Typically, a line has the following format:
 
 ```regex
-^{{PREFIX_OPEN}}(?<type>[a-z\-]+)(?:\\{{PARAMETERS_START}}(?<parameters>(?:[a-z\-]+{{PARAMETER_KV_SEPARATOR}}[^,]+{{PARAMETER_SEPARATOR}}?)+))?{{PREFIX_CLOSE}}(?<content>.*)$
+^(?<typeKey>[a-z])\{{SEPARATOR}}(?<metadata>{.*?})\{{SEPARATOR}}(?<content>.*)$
 ```
 
 Or, more readably:
 
 ```
-{{PREFIX_OPEN}}${type}{{PARAMETERS_START}}${parameters}{{PREFIX_CLOSE}}${content}
+${typeKey}{{SEPARATOR}}${metadata}{{SEPARATOR}}${content}
 ```
 
-In a line, the `type` seen above is a name consisting of lowercase letters
-`a-z` and dashes. The `parameters` property is a
-`{{PARAMETER_SEPARATOR}}`-separated list of key-value pairs of the format
-`key{{PARAMETER_KV_SEPARATOR}}value`. **Note:** This format will change before
-this specification is complete.
+In a line, the `typeKey` seen above is a typically single-character identifier
+for a specific line type. The `metadata` property is a JSON string containing
+information about the line.

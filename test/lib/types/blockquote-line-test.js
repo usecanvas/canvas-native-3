@@ -1,14 +1,11 @@
 import BlockquoteLine from '../../../lib/types/blockquote-line';
 import Paragraph      from '../../../lib/types/paragraph';
 import { expect }     from 'chai';
-import { wrap   }     from '../../../lib/brackets';
-
-const NAME = BlockquoteLine.type;
 
 describe('Type: BlockquoteLine', () => {
   [
     ['matchMarkdown', '> Foo'],
-    ['matchNative', `${wrap(NAME)}Foo`]
+    ['matchNative', BlockquoteLine.buildNative('Foo')],
   ].forEach(([matchType, matchSource]) => {
     describe(`.${matchType}`, () => {
       let line;
@@ -18,7 +15,7 @@ describe('Type: BlockquoteLine', () => {
       });
 
       it('has a source', () => {
-        expect(line.source).to.eql(`${wrap(NAME)}Foo`);
+        expect(line.source).to.eql(BlockquoteLine.buildNative('Foo'));
       });
 
       it('has content', () => {
@@ -41,7 +38,7 @@ describe('Type: BlockquoteLine', () => {
     let line;
 
     beforeEach(() => {
-      line = BlockquoteLine.matchNative(wrap(NAME) + 'Foo');
+      line = BlockquoteLine.matchNative(BlockquoteLine.buildNative('Foo'));
     });
 
     it('appends a new line at the end of a group', () => {

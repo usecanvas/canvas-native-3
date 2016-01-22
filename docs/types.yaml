@@ -2,6 +2,7 @@
   description: >
     A line of a quote pulled from an outside source.
   type: blockquote-line
+  typeKey: q
   examples:
     markdown: "> Hello, world!"
 - title: Checklist Item
@@ -24,6 +25,7 @@
     A code line represents a line of code, typically in a block of other lines
     of code.
   type: code-line
+  typeKey: o
   parameters:
     optional:
       - name: language
@@ -37,6 +39,7 @@
     A heading represents a line of heading text at a specific level, from one
     to six.
   type: heading
+  typeKey: h
   parameters:
     required:
       - name: level
@@ -48,12 +51,14 @@
   description: >
     A horizontal rule represents a visual horizontal separator in a document.
   type: horizontal-rule
+  typeKey: r
   examples:
     markdown: ---
 - title: Image
   description: >
     An image represents a visual image embedded in a document.
   type: image
+  typeKey: i
   parameters:
     optional:
       - name: width
@@ -76,13 +81,22 @@
   description: >
     A line that defines a link referred to elsewhere in the document.
   type: link-definition
+  typeKey: d
+  parameters:
+    required:
+      - name: name
+        type: string
+        description: The name of this link definition
+      - name: url
+        type: string
+        description: The URL that this link points to
   examples:
     markdown: "[Google]: https://www.google.com"
-    native: ⧙link-definition⧘[Google]: https://www.google.com
 - title: Numbered List Item
   description: >
     An numbered list item represents an item in a list whose order is important.
   type: numbered-list-item
+  typeKey: n
   parameters:
     required:
       - name: level
@@ -94,6 +108,7 @@
   description: >
     A plain paragraph of text.
   type: paragraph
+  typeKey: p
   examples:
     markdown: This is a paragraph.
 - title: Title
@@ -101,12 +116,14 @@
     The title of a document, which comes from a level 1 header at the very
     beginning of parsed Markdown, if one is present.
   type: title
+  typeKey: t
   examples:
     markdown: # Title
 - title: Bullet List Item
   description: >
     A bullet list item represents an item in a bullet list.
   type: bullet-list-item
+  typeKey: b
   parameters:
     required:
       - name: level

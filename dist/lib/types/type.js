@@ -10,7 +10,7 @@ var _xregexp = require('xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 
-var _brackets = require('../brackets');
+var _constants = require('../constants.json');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -64,7 +64,7 @@ var Type = function () {
 
     /**
      * @static
-     * @property {string} type The type name of this line class
+     * @property {string} type A human-readable name for this type
      */
 
   }, {
@@ -105,7 +105,7 @@ var Type = function () {
     }
 
     /**
-     * @property {string} type The type name of this line
+     * @property {string} type A human-readable name for this type
      * @see {@link Type.type}
      */
 
@@ -114,16 +114,49 @@ var Type = function () {
     get: function get() {
       return this.constructor.type;
     }
-  }], [{
-    key: 'matchMarkdown',
 
     /**
+     * @property {string} typeKey A short, typically one-character key to denote
+     *   this line type
+     * @see {@link Type.typeKey}
+     */
+
+  }, {
+    key: 'typeKey',
+    get: function get() {
+      return this.constructor.typeKey;
+    }
+  }], [{
+    key: 'buildNative',
+
+    /**
+     * Build a Canvas Native string of this type from a given content string and
+     * meta data object.
+     *
+     * @static
+     * @method
+     * @param {string} [content=''] The readable content for the native line
+     * @param {object} [meta={}] The metadata for the native line
+     */
+    value: function buildNative() {
+      var content = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+      var meta = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+      return [this.typeKey, JSON.stringify(meta), content].join(_constants.SEPARATOR);
+    }
+
+    /**
+     * Match a Markdown string and return a line of this type if it matches.
+     *
      * @static
      * @method
      * @param {string} markdown The Markdown to possibly match this line against
      * @return {?object} An object representing the match information for this
      *   line
      */
+
+  }, {
+    key: 'matchMarkdown',
     value: function matchMarkdown(markdown) {
       var match = _xregexp2.default.exec(markdown, this.markdownPattern);
 
@@ -131,11 +164,13 @@ var Type = function () {
         return null;
       }
 
-      var nativeString = (0, _brackets.wrap)(this.type) + match.content;
+      var nativeString = this.buildNative(match.content);
       return this.matchNative(nativeString);
     }
 
     /**
+     * Match a native string and return a line of this type if it matches.
+     *
      * @static
      * @method
      * @param {string} native The native string to possibly match this line
@@ -154,6 +189,18 @@ var Type = function () {
     key: 'type',
     get: function get() {
       throw new Error('Must implement `type` for each type');
+    }
+
+    /**
+     * @static
+     * @property {string} typeKey A short, typically one-character key to denote
+     *   this line type
+     */
+
+  }, {
+    key: 'typeKey',
+    get: function get() {
+      throw new Error('Must implement `typeKey` for each type');
     }
 
     /**
@@ -177,7 +224,7 @@ var Type = function () {
   }, {
     key: 'nativePattern',
     get: function get() {
-      throw new Error('Must implement `nativePattern` for each type');
+      return (0, _xregexp2.default)('^\n      (?<source>\n        ' + this.typeKey + _constants.SEPARATOR + '\n        (?<meta> .*)' + _constants.SEPARATOR + '\n        (?<content> .*))$', 'x');
     }
   }]);
 

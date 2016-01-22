@@ -14,8 +14,6 @@ var _xregexp = require('xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 
-var _brackets = require('../brackets');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73,17 +71,6 @@ var BlockquoteLine = function (_Type) {
 
     /**
      * @static
-     * @see Type.nativePattern
-     */
-
-  }, {
-    key: 'nativePattern',
-    get: function get() {
-      return (0, _xregexp2.default)('^\n      (?<source>\n        (?<prefix>  ' + (0, _brackets.wrap)('blockquote-line') + ')\n        (?<content> .*))', 'x');
-    }
-
-    /**
-     * @static
      * @see Type.type
      */
 
@@ -91,6 +78,17 @@ var BlockquoteLine = function (_Type) {
     key: 'type',
     get: function get() {
       return 'blockquote-line';
+    }
+
+    /**
+     * @static
+     * @see Type.typeKey
+     */
+
+  }, {
+    key: 'typeKey',
+    get: function get() {
+      return 'q';
     }
   }]);
 
