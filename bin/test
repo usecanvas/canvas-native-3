@@ -2,5 +2,5 @@
 
 set -e
 
-mocha --compilers js:babel-register "test/**/*-test.js"
+mocha --compilers js:babel-register -R dot "test/**/*-test.js"
 eslint lib test

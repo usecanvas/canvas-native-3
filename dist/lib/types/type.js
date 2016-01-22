@@ -69,7 +69,7 @@ var Type = function () {
 
     /**
      * @static
-     * @property {string} type A human-readable name for this type
+     * @property {string} groupType The type of group this line belongs to
      */
 
   }, {
@@ -80,12 +80,13 @@ var Type = function () {
 
     /**
      * @property {string} groupType The type of group this line belongs to
+     * @see {@link Type.groupType}
      */
 
   }, {
     key: 'groupType',
     get: function get() {
-      return _2.default[this.type].groupType || 'canvas';
+      return this.constructor.groupType;
     }
 
     /**
@@ -156,6 +157,8 @@ var Type = function () {
      * @static
      * @method
      * @param {string} markdown The Markdown to possibly match this line against
+     * @param {?object} [context={}] A context object containing the surrounding
+     *   context of this line
      * @return {?object} An object representing the match information for this
      *   line
      */
@@ -163,9 +166,16 @@ var Type = function () {
   }, {
     key: 'matchMarkdown',
     value: function matchMarkdown(markdown) {
+      var context = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
       var match = _xregexp2.default.exec(markdown, this.markdownPattern);
+      var groupType = context.groupType || 'canvas';
 
       if (!match) {
+        return null;
+      }
+
+      if (groupType !== this.groupType) {
         return null;
       }
 
@@ -199,6 +209,17 @@ var Type = function () {
       var match = _xregexp2.default.exec(native, this.nativePattern);
       return match ? new this(match) : null;
     }
+  }, {
+    key: 'groupType',
+    get: function get() {
+      return _2.default[this.type].groupType || 'canvas';
+    }
+
+    /**
+     * @static
+     * @property {string} type A human-readable name for this type
+     */
+
   }, {
     key: 'type',
     get: function get() {
