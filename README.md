@@ -178,6 +178,7 @@ An image represents a visual image embedded in a document.
 - `height` (number) - The height, in pixels, of the image
 - `alt-text` (string) - The alt text to display on top of the image
 - `title` (string) - The title of the image
+- `uploadCacheID` (string) - A UUID identifying an image being uploaded
 
 #### Example
 
@@ -190,7 +191,7 @@ An image represents a visual image embedded in a document.
 ##### Native
 
 ```
-im|{"width":800,"height":600,"alt-text":"foo","title":"foo"}|Foo bar
+im|{"width":800,"height":600,"alt-text":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
 ```
 
 ---
