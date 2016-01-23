@@ -53,7 +53,6 @@ describe('Type: Image', () => {
       expect(Image.matchMarkdown(
         '![](https://example.com/foo/bar.png)').meta)
         .to.eql({
-          alt: '',
           url: 'https://example.com/foo/bar.png',
         });
     });

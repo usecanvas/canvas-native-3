@@ -60,7 +60,7 @@ var Image = function (_Type) {
   }], [{
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^\n      (?:!\\[(?<meta_alt> .*?)\\]\\()?\n      (?<meta_url> https?:\\/\\/.+\\/.+\\.(?:gif|jpg|jpeg|png)(?:\\?[^\\s)]+)?)\n      (?:\\s*"(?<meta_title> [^"]+)")?\n      \\)?', 'x');
+      return (0, _xregexp2.default)('^\n      (?:!\\[(?<meta_alt> .+?)?\\]\\()?\n      (?<meta_url> https?:\\/\\/.+\\/.+\\.(?:gif|jpg|jpeg|png)(?:\\?[^\\s)]+)?)\n      (?:\\s*"(?<meta_title> [^"]+)")?\n      \\)?', 'x');
     }
 
     /**
