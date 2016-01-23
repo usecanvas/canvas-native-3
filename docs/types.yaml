@@ -71,7 +71,7 @@ image:
         type: number
         example: 600
         description: The height, in pixels, of the image
-      - name: alt-text
+      - name: alt
         type: string
         description: The alt text to display on top of the image
       - name: title
