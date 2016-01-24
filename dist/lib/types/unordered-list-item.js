@@ -6,9 +6,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _type = require('./type');
+var _listItem = require('./list-item');
 
-var _type2 = _interopRequireDefault(_type);
+var _listItem2 = _interopRequireDefault(_listItem);
+
+var _xregexp = require('xregexp');
+
+var _xregexp2 = _interopRequireDefault(_xregexp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18,58 +22,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ListItem = function (_Type) {
-  _inherits(ListItem, _Type);
+/**
+ * A line representing an item in an unordered list
+ *
+ * @class UnorderedListItem
+ * @extends ListItem
+ */
 
-  function ListItem() {
-    _classCallCheck(this, ListItem);
+var UnorderedListItem = function (_ListItem) {
+  _inherits(UnorderedListItem, _ListItem);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ListItem).apply(this, arguments));
+  function UnorderedListItem() {
+    _classCallCheck(this, UnorderedListItem);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(UnorderedListItem).apply(this, arguments));
   }
 
-  _createClass(ListItem, [{
-    key: 'toMarkdown',
-    value: function toMarkdown(prev, next) {
-      var context = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-      var delimiter = this.buildMarkdownDelimiter(context);
-      var markdown = delimiter + ' ' + this.content;
-
-      if (next && next.type !== this.type) {
-        return markdown + '\n';
-      }
-
-      return markdown;
-    }
-
-    /**
-     * Build the list item delimiter for a Markdown line of this type.
-     *
-     * @method
-     * @param {object} context The context in which the Markdown conversion is
-     *   taking place
-     * @return {string} The delimiter for a Markdown line
-     */
-
-  }, {
+  _createClass(UnorderedListItem, [{
     key: 'buildMarkdownDelimiter',
     value: function buildMarkdownDelimiter() {
-      throw new Error('Must implement `#buildMarkdownDelimiter` for list types');
+      return '-';
     }
 
     /**
      * @static
-     * @see Type.groupType
+     * @see Type.markdownPattern
      */
 
   }], [{
-    key: 'groupType',
+    key: 'markdownPattern',
     get: function get() {
-      return this.type.replace(/-item$/, '');
+      return (0, _xregexp2.default)('^[\\*\\-\\+] (?<content>.*)$');
+    }
+
+    /**
+     * @static
+     * @see Type.type
+     */
+
+  }, {
+    key: 'type',
+    get: function get() {
+      return 'unordered-list-item';
     }
   }]);
 
-  return ListItem;
-}(_type2.default);
+  return UnorderedListItem;
+}(_listItem2.default);
 
-exports.default = ListItem;
+exports.default = UnorderedListItem;
