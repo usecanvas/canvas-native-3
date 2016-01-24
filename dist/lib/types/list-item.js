@@ -10,6 +10,10 @@ var _type = require('./type');
 
 var _type2 = _interopRequireDefault(_type);
 
+var _xregexp = require('xregexp');
+
+var _xregexp2 = _interopRequireDefault(_xregexp);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32,8 +36,13 @@ var ListItem = function (_Type) {
     value: function toMarkdown(prev, next) {
       var context = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
+      var whitespace = '';
+      for (var i = 0; i < this.meta.level; i++) {
+        whitespace += '  ';
+      }
+
       var delimiter = this.buildMarkdownDelimiter(context);
-      var markdown = delimiter + ' ' + this.content;
+      var markdown = '' + whitespace + delimiter + ' ' + this.content;
 
       if (next && next.type !== this.type) {
         return markdown + '\n';
@@ -63,6 +72,42 @@ var ListItem = function (_Type) {
      */
 
   }], [{
+    key: 'matchMarkdown',
+
+    /**
+     * @static
+     * @method
+     */
+    value: function matchMarkdown(markdown) {
+      var match = _xregexp2.default.exec(markdown, this.markdownPattern);
+
+      if (!match) {
+        return null;
+      }
+
+      var meta = {
+        level: this.readLevel(match.meta_whitespace)
+      };
+
+      var nativeString = this.buildNative(match.content, meta);
+      return this.matchNative(nativeString);
+    }
+
+    /**
+     * Read the nesting level of this line from leading whitespace
+     *
+     * @static
+     * @private
+     * @param {string} whitespace The whitespace to read the level from
+     * @return {number}
+     */
+
+  }, {
+    key: 'readLevel',
+    value: function readLevel(whitespace) {
+      return Math.ceil(whitespace.length / 2);
+    }
+  }, {
     key: 'groupType',
     get: function get() {
       return this.type.replace(/-item$/, '');

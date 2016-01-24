@@ -64,7 +64,8 @@ var ChecklistItem = function (_ListItem) {
       }
 
       var meta = {
-        checked: !!match.meta_check.trim()
+        checked: !!match.meta_check.trim(),
+        level: this.readLevel(match.meta_whitespace)
       };
 
       var nativeString = this.buildNative(match.content, meta);
@@ -73,7 +74,7 @@ var ChecklistItem = function (_ListItem) {
   }, {
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^ *[\\-\\+\\*] \\[(?<meta_check>[xX ])\\] (?<content>.*)');
+      return (0, _xregexp2.default)('^(?<meta_whitespace> *)[\\-\\+\\*] \\[(?<meta_check>[xX ])\\] (?<content>.*)');
     }
 
     /**

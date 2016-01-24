@@ -4,8 +4,8 @@ import { expect }      from 'chai';
 
 describe('Type: OrderedListItem', () => {
   [
-    ['matchMarkdown', '12. Foo'],
-    ['matchNative', OrderedListItem.buildNative('Foo')],
+    ['matchMarkdown', '  12. Foo'],
+    ['matchNative', OrderedListItem.buildNative('Foo', { level: 1 })],
   ].forEach(([matchType, matchSource]) => {
     describe(`.${matchType}`, () => {
       let line;
@@ -15,7 +15,8 @@ describe('Type: OrderedListItem', () => {
       });
 
       it('has a source', () => {
-        expect(line.source).to.eql(OrderedListItem.buildNative('Foo'));
+        expect(line.source).to.eql(OrderedListItem.buildNative('Foo',
+          { level: 1 }));
       });
 
       it('has content', () => {
@@ -30,7 +31,7 @@ describe('Type: OrderedListItem', () => {
       expect(line.toJSON()).to.eql({
         type: 'ordered-list-item',
         content: 'Foo',
-        meta: {},
+        meta: { level: 0 },
       });
     });
   });
@@ -39,28 +40,29 @@ describe('Type: OrderedListItem', () => {
     let line;
 
     beforeEach(() => {
-      line = OrderedListItem.matchNative(OrderedListItem.buildNative('Foo'));
+      line = OrderedListItem.matchNative(OrderedListItem.buildNative('Foo',
+        { level: 1 }));
     });
 
     it('uses the groupIndex for the item number', () => {
       expect(line.toMarkdown(null, null, { groupIndex: 16 }))
-        .to.eq('17. Foo');
+        .to.eq('  17. Foo');
     });
 
     it('appends a new line at the end of a group', () => {
       expect(
         line.toMarkdown(null, Paragraph.matchMarkdown('Foo'), { groupIndex: 1 })
-      ).to.eq('2. Foo\n');
+      ).to.eq('  2. Foo\n');
     });
 
     it('does not append a newline mid-list', () => {
       expect(line.toMarkdown(null, line, { groupIndex: 12 }))
-        .to.eql('13. Foo');
+        .to.eql('  13. Foo');
     });
 
     it('does not append a new line at the end of the document', () => {
       expect(line.toMarkdown(null, null, { groupIndex: 0 }))
-        .to.eql('1. Foo');
+        .to.eql('  1. Foo');
     });
   });
 });

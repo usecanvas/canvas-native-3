@@ -54,7 +54,7 @@ var OrderedListItem = function (_ListItem) {
   }], [{
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^\\d+\\. (?<content>.*)$');
+      return (0, _xregexp2.default)('^(?<meta_whitespace> *)\\d+\\. (?<content>.*)$');
     }
 
     /**

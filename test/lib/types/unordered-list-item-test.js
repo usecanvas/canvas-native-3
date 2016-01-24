@@ -4,8 +4,8 @@ import { expect }        from 'chai';
 
 describe('Type: UnorderedListItem', () => {
   [
-    ['matchMarkdown', '- Foo'],
-    ['matchNative', UnorderedListItem.buildNative('Foo')],
+    ['matchMarkdown', '   - Foo'],
+    ['matchNative', UnorderedListItem.buildNative('Foo', { level: 2 })],
   ].forEach(([matchType, matchSource]) => {
     describe(`.${matchType}`, () => {
       let line;
@@ -15,7 +15,9 @@ describe('Type: UnorderedListItem', () => {
       });
 
       it('has a source', () => {
-        expect(line.source).to.eql(UnorderedListItem.buildNative('Foo'));
+        expect(line.source).to.eql(UnorderedListItem.buildNative('Foo', {
+          level: 2
+        }));
       });
 
       it('has content', () => {
@@ -30,7 +32,7 @@ describe('Type: UnorderedListItem', () => {
       expect(line.toJSON()).to.eql({
         type: 'unordered-list-item',
         content: 'Foo',
-        meta: {},
+        meta: { level: 0 },
       });
     });
   });
@@ -39,23 +41,24 @@ describe('Type: UnorderedListItem', () => {
     let line;
 
     beforeEach(() => {
-      line = UnorderedListItem.matchNative(UnorderedListItem.buildNative('Foo'));
+      line = UnorderedListItem.matchNative(
+        UnorderedListItem.buildNative('Foo', { level: 3 }));
     });
 
     it('appends a new line at the end of a group', () => {
       expect(
         line.toMarkdown(null, Paragraph.matchMarkdown('Foo'))
-      ).to.eq('- Foo\n');
+      ).to.eq('      - Foo\n');
     });
 
     it('does not append a newline mid-list', () => {
       expect(line.toMarkdown(null, line))
-        .to.eql('- Foo');
+        .to.eql('      - Foo');
     });
 
     it('does not append a new line at the end of the document', () => {
       expect(line.toMarkdown())
-        .to.eql('- Foo');
+        .to.eql('      - Foo');
     });
   });
 });

@@ -52,7 +52,7 @@ var UnorderedListItem = function (_ListItem) {
   }], [{
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^[\\*\\-\\+] (?<content>.*)$');
+      return (0, _xregexp2.default)('^(?<meta_whitespace> *)[\\*\\-\\+] (?<content>.*)$');
     }
 
     /**
