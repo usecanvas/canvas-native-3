@@ -38,13 +38,19 @@ var Paragraph = function (_Type) {
     return _possibleConstructorReturn(this, Object.getPrototypeOf(Paragraph).apply(this, arguments));
   }
 
-  _createClass(Paragraph, null, [{
-    key: 'markdownPattern',
+  _createClass(Paragraph, [{
+    key: 'toMarkdown',
+    value: function toMarkdown(_prev, next) {
+      return this.content + (next ? '\n' : '');
+    }
 
     /**
      * @static
      * @see Type.markdownPattern
      */
+
+  }], [{
+    key: 'markdownPattern',
     get: function get() {
       return (0, _xregexp2.default)('^(?<content>.*)$');
     }
