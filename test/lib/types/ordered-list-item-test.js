@@ -42,24 +42,24 @@ describe('Type: OrderedListItem', () => {
       line = OrderedListItem.matchNative(OrderedListItem.buildNative('Foo'));
     });
 
-    it('uses the index for the item number', () => {
-      expect(line.toMarkdown(null, null, { index: 16 }))
+    it('uses the groupIndex for the item number', () => {
+      expect(line.toMarkdown(null, null, { groupIndex: 16 }))
         .to.eq('17. Foo');
     });
 
     it('appends a new line at the end of a group', () => {
       expect(
-        line.toMarkdown(null, Paragraph.matchMarkdown('Foo'), { index: 1 })
+        line.toMarkdown(null, Paragraph.matchMarkdown('Foo'), { groupIndex: 1 })
       ).to.eq('2. Foo\n');
     });
 
     it('does not append a newline mid-list', () => {
-      expect(line.toMarkdown(null, line, { index: 12 }))
+      expect(line.toMarkdown(null, line, { groupIndex: 12 }))
         .to.eql('13. Foo');
     });
 
     it('does not append a new line at the end of the document', () => {
-      expect(line.toMarkdown(null, null, { index: 0 }))
+      expect(line.toMarkdown(null, null, { groupIndex: 0 }))
         .to.eql('1. Foo');
     });
   });
