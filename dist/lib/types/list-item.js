@@ -6,13 +6,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _listItem = require('./list-item');
+var _type = require('./type');
 
-var _listItem2 = _interopRequireDefault(_listItem);
-
-var _xregexp = require('xregexp');
-
-var _xregexp2 = _interopRequireDefault(_xregexp);
+var _type2 = _interopRequireDefault(_type);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,73 +18,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/**
- * A line representing an item in a checklist
- *
- * @class ChecklistItem
- * @extends ListItem
- */
+var ListItem = function (_Type) {
+  _inherits(ListItem, _Type);
 
-var ChecklistItem = function (_ListItem) {
-  _inherits(ChecklistItem, _ListItem);
+  function ListItem() {
+    _classCallCheck(this, ListItem);
 
-  function ChecklistItem() {
-    _classCallCheck(this, ChecklistItem);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChecklistItem).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ListItem).apply(this, arguments));
   }
 
-  _createClass(ChecklistItem, [{
+  _createClass(ListItem, [{
+    key: 'toMarkdown',
+    value: function toMarkdown(prev, next, context) {
+      var delimiter = this.buildMarkdownDelimiter(context);
+      var markdown = delimiter + ' ' + this.content;
+
+      if (next && next.type !== this.type) {
+        return markdown + '\n';
+      }
+
+      return markdown;
+    }
+
+    /**
+     * Build the list item delimiter for a Markdown line of this type.
+     *
+     * @method
+     * @param {object} context The context in which the Markdown conversion is
+     *   taking place
+     * @return {string} The delimiter for a Markdown line
+     */
+
+  }, {
     key: 'buildMarkdownDelimiter',
     value: function buildMarkdownDelimiter() {
-      return '- [' + (this.meta.checked ? 'x' : ' ') + ']';
+      throw new Error('Must implement `#buildMarkdownDelimiter` for list types');
     }
 
     /**
      * @static
-     * @see Type.markdownPattern
+     * @see Type.groupType
      */
 
   }], [{
-    key: 'matchMarkdown',
-
-    /**
-     * @static
-     * @method
-     */
-    value: function matchMarkdown(markdown) {
-      var match = _xregexp2.default.exec(markdown, this.markdownPattern);
-
-      if (!match) {
-        return null;
-      }
-
-      var meta = {
-        checked: !!match.meta_check.trim()
-      };
-
-      var nativeString = this.buildNative(match.content, meta);
-      return this.matchNative(nativeString);
-    }
-  }, {
-    key: 'markdownPattern',
+    key: 'groupType',
     get: function get() {
-      return (0, _xregexp2.default)('^ *[\\-\\+\\*] \\[(?<meta_check>[xX ])\\] (?<content>.*)');
-    }
-
-    /**
-     * @static
-     * @see Type.type
-     */
-
-  }, {
-    key: 'type',
-    get: function get() {
-      return 'checklist-item';
+      return this.type.replace(/-item$/, '');
     }
   }]);
 
-  return ChecklistItem;
-}(_listItem2.default);
+  return ListItem;
+}(_type2.default);
 
-exports.default = ChecklistItem;
+exports.default = ListItem;

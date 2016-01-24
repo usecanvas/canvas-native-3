@@ -62,12 +62,16 @@ var Type = function () {
 
     /**
      * @method
+     * @param {Type} prev The line before the line being converted to Markdown
+     * @param {Type} next The line after the line being converted to Markdown
+     * @param {object} [context={}] Contextual information for the Markdown
+     *   conversion
      * @return {string} The Markdown representation of this line
      */
 
   }, {
     key: 'toMarkdown',
-    value: function toMarkdown(_prev, _next) {
+    value: function toMarkdown(_prev, _next, _context) {
       throw new Error('Must implement `#toMarkdown` for each type');
     }
 
@@ -169,17 +173,10 @@ var Type = function () {
 
   }, {
     key: 'matchMarkdown',
-    value: function matchMarkdown(markdown) {
-      var context = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
+    value: function matchMarkdown(markdown, _context) {
       var match = _xregexp2.default.exec(markdown, this.markdownPattern);
-      var groupType = context.groupType || 'canvas';
 
       if (!match) {
-        return null;
-      }
-
-      if (groupType !== this.groupType) {
         return null;
       }
 
