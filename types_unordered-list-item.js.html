@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>types/unordered-list-item.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav class="nav">
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-formatters_markdown.html">formatters/markdown</a><ul class='methods'><li data-type='method'><a href="module-formatters_markdown.html#~format">format</a></li></ul></li><li><a href="module-parsers_markdown.html">parsers/markdown</a><ul class='methods'><li data-type='method'><a href="module-parsers_markdown.html#~parse">parse</a></li></ul></li><li><a href="Parsers.module_Native.html">Native</a><ul class='methods'><li data-type='method'><a href="Parsers.module_Native.html#~parse">parse</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="BlockquoteLine.html">BlockquoteLine</a><ul class='methods'><li data-type='method'><a href="BlockquoteLine.html#toJSON">toJSON</a></li><li data-type='method'><a href="BlockquoteLine.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="ChecklistItem.html">ChecklistItem</a><ul class='methods'><li data-type='method'><a href="ChecklistItem.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="ChecklistItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li><li><a href="CodeLine.html">CodeLine</a><ul class='methods'><li data-type='method'><a href="CodeLine.html#.matchFence">matchFence</a></li><li data-type='method'><a href="CodeLine.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="CodeLine.html#toJSON">toJSON</a></li><li data-type='method'><a href="CodeLine.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Heading.html">Heading</a><ul class='methods'><li data-type='method'><a href="Heading.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="Heading.html#toJSON">toJSON</a></li><li data-type='method'><a href="Heading.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="HorizontalRule.html">HorizontalRule</a><ul class='methods'><li data-type='method'><a href="HorizontalRule.html#toJSON">toJSON</a></li><li data-type='method'><a href="HorizontalRule.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Image.html">Image</a><ul class='methods'><li data-type='method'><a href="Image.html#toJSON">toJSON</a></li><li data-type='method'><a href="Image.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="LinkDefinition.html">LinkDefinition</a><ul class='methods'><li data-type='method'><a href="LinkDefinition.html#toJSON">toJSON</a></li><li data-type='method'><a href="LinkDefinition.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="OrderedListItem.html">OrderedListItem</a><ul class='methods'><li data-type='method'><a href="OrderedListItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li><li><a href="Paragraph.html">Paragraph</a><ul class='methods'><li data-type='method'><a href="Paragraph.html#toJSON">toJSON</a></li><li data-type='method'><a href="Paragraph.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Type.html">Type</a><ul class='methods'><li data-type='method'><a href="Type.html#.buildNative">buildNative</a></li><li data-type='method'><a href="Type.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="Type.html#.matchNative">matchNative</a></li><li data-type='method'><a href="Type.html#toJSON">toJSON</a></li><li data-type='method'><a href="Type.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="UnorderedListItem.html">UnorderedListItem</a><ul class='methods'><li data-type='method'><a href="UnorderedListItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">types/unordered-list-item.js</h1>
+    
+
+    <!--container.tmpl-->
+
+
+
+
+    <!--source.tmpl-->
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ListItem from './list-item';
+import XRegExp  from 'xregexp';
+
+/**
+ * A line representing an item in an unordered list
+ *
+ * @class UnorderedListItem
+ * @extends ListItem
+ */
+export default class UnorderedListItem extends ListItem {
+  buildMarkdownDelimiter() {
+    return '-';
+  }
+
+  /**
+   * @static
+   * @see Type.markdownPattern
+   */
+  static get markdownPattern() {
+    return XRegExp('^(?&lt;meta_whitespace> *)[\\*\\-\\+] (?&lt;content>.*)$');
+  }
+
+  /**
+   * @static
+   * @see Type.type
+   */
+  static get type() {
+    return 'unordered-list-item';
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> using the LOKE theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
