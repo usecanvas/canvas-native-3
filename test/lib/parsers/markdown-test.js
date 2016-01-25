@@ -54,13 +54,13 @@ describe('Parsers.Markdown', () => {
 
     const result = Parser.parse(source);
 
-    expect(result.map(r => r.type)).to.eql([
-      'title',
-      'code-line',
-      'code-line',
-      'code-line',
-      'code-line',
-      'paragraph',
+    expect(result.map(r => [r.type, r.content])).to.eql([
+      ['title', 'Title'],
+      ['code-line', 'def foo'],
+      ['code-line', ''],
+      ['code-line', ''],
+      ['code-line', 'end'],
+      ['paragraph', 'End paragraph'],
     ]);
   });
 
