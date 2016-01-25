@@ -13,7 +13,7 @@ dist: lib/types/index.json lib/**/* package.json
 	$(BABEL) lib -d dist/lib
 	cp lib/types/index.json dist/lib/types/index.json
 
-docs: lib/**/* package.json
+docs: lib/**/* package.json README.md
 	rm -rf docs
 	$(JSDOC) lib/**/* -c .jsdocrc
 

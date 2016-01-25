@@ -53,6 +53,12 @@ ${typeKey}|${metadata}|${content}
 In a line, the `typeKey` seen above is a typically two-character identifier for
 a specific line type. The `metadata` property is a JSON string containing
 information about the line.
+
+So, a line of Ruby code might look like this:
+
+```
+co|{"language":"ruby"}|class MyClass extends OtherClass
+```
 ### Blockquote Line
 
 A line of a quote pulled from an outside source.

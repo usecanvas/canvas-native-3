@@ -75,7 +75,8 @@ Typically, a line has the following format:</p>
 <pre class="prettyprint source"><code>${typeKey}|${metadata}|${content}</code></pre><p>In a line, the <code>typeKey</code> seen above is a typically two-character identifier for
 a specific line type. The <code>metadata</code> property is a JSON string containing
 information about the line.</p>
-<h3>Blockquote Line</h3><p>A line of a quote pulled from an outside source.</p>
+<p>So, a line of Ruby code might look like this:</p>
+<pre class="prettyprint source"><code>co|{&quot;language&quot;:&quot;ruby&quot;}|class MyClass extends OtherClass</code></pre><h3>Blockquote Line</h3><p>A line of a quote pulled from an outside source.</p>
 <h4>Parameters</h4><p>This type has no parameters.</p>
 <h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>> Hello, world!</code></pre><h5>Native</h5><pre class="prettyprint source"><code>bq|{}|Foo bar</code></pre><hr>
 <h3>Checklist Item</h3><p>A checklist item represents an item in a checklist. It can be nested, and may or may not be checked.</p>
