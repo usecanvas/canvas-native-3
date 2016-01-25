@@ -1,4 +1,4 @@
-# CanvasNative
+# CanvasNative [![Circle CI](https://circleci.com/gh/usecanvas/canvas-native-3.svg?style=svg)](https://circleci.com/gh/usecanvas/canvas-native-3)
 
 CanvasNative is a method of representing Canvas documents in a linear fashion
 (e.g. not JSON) while including metadata about the document's contents.
