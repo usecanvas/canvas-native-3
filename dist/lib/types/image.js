@@ -57,6 +57,11 @@ var Image = function (_Type) {
      * @see Type.markdownPattern
      */
 
+  }, {
+    key: 'isSummarized',
+    get: function get() {
+      return false;
+    }
   }], [{
     key: 'markdownPattern',
     get: function get() {

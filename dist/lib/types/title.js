@@ -44,6 +44,11 @@ var Title = function (_Type) {
      * @see Type.markdownPattern
      */
 
+  }, {
+    key: 'isSummarized',
+    get: function get() {
+      return false;
+    }
   }], [{
     key: 'matchMarkdown',
 
