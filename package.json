@@ -38,6 +38,8 @@
     "yamljs": "0.2.4"
   },
   "dependencies": {
+    "markdown-it": "5.1.0",
+    "markdown-it-checkbox": "1.1.0",
     "xregexp": "3.0.0"
   }
 }

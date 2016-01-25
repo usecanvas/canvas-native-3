@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>types/checklist-item.js - Documentation</title>
+    <title>formatters/html.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">types/checklist-item.js</h1>
+    <h1 class="page-title">formatters/html.js</h1>
     
 
     <!--container.tmpl-->
@@ -46,55 +46,33 @@
 
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import ListItem from './list-item';
-import XRegExp  from 'xregexp';
+            <pre class="prettyprint source linenums"><code>import MarkdownIt   from 'markdown-it';
+import MdFormatter  from './markdown';
+import MdItCheckbox from 'markdown-it-checkbox';
 
 /**
- * A line representing an item in a checklist
+ * A module that exposes a single function for formatting an array of
+ * CanvasNative line objects as HTML
  *
- * @class ChecklistItem
- * @extends ListItem
+ * @module
  */
-export default class ChecklistItem extends ListItem {
-  buildMarkdownDelimiter() {
-    return `- [${this.meta.checked ? 'x' : ' '}]`;
-  }
+export default {
+  format,
+}
 
-  /**
-   * @static
-   * @see Type.markdownPattern
-   */
-  static get markdownPattern() {
-    return XRegExp(`^(?&lt;meta_whitespace> *)[\\-\\+\\*] \\[(?&lt;meta_check>[xX ])\\] (?&lt;content>.*)`);
-  }
+const renderer = new MarkdownIt({
+  linkify: true,
+}).use(MdItCheckbox);
 
-  /**
-   * @static
-   * @see Type.type
-   */
-  static get type() {
-    return 'checklist-item';
-  }
-
-  /**
-   * @static
-   * @method
-   */
-  static matchMarkdown(markdown) {
-    const match = XRegExp.exec(markdown, this.markdownPattern);
-
-    if (!match) {
-      return null;
-    }
-
-    const meta = {
-      checked: !!match.meta_check.trim(),
-      level: this.readLevel(match.meta_whitespace),
-    };
-
-    const nativeString = this.buildNative(match.content, meta);
-    return this.matchNative(nativeString);
-  }
+/**
+ * Format an array of CanvasNative lines as HTML.
+ *
+ * @function
+ * @param {Array&lt;Type>} nativeLines The CanvasNative lines
+ * @return {string} The HTML text
+ */
+function format(nativeLines) {
+  return renderer.render(MdFormatter.format(nativeLines));
 }
 </code></pre>
         </article>

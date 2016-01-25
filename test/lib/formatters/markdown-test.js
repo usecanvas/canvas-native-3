@@ -1,14 +1,11 @@
 import Formatter  from '../../../lib/formatters/markdown';
 import Parser     from '../../../lib/parsers/markdown';
 import { expect } from 'chai';
-
-import {
-  stripLeadingWhitespace
-} from '../../test-helper';
+import { trim   } from '../../test-helper';
 
 describe('Formatters.Markdown', () => {
   it('formats native lines as Markdown', () => {
-    const nativeLines = Parser.parse(stripLeadingWhitespace(`\
+    const nativeLines = Parser.parse(trim(`\
        # Title
        Foo
        Bar
@@ -20,7 +17,7 @@ describe('Formatters.Markdown', () => {
 
     const markdown = Formatter.format(nativeLines);
 
-    expect(markdown).to.eq(stripLeadingWhitespace(`\
+    expect(markdown).to.eq(trim(`\
       # Title
 
       Foo
