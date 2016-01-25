@@ -16,7 +16,7 @@ const assert    = require('assert');
 
 const SEPARATOR = CONSTANTS.READABLE_SEPARATOR;
 
-const types       = YAML.load(Path.join(__dirname, '../docs/types.yaml'));
+const types       = YAML.load(Path.join(__dirname, '../lib/types/index.yaml'));
 const overviewTpl = Hbs.compile(
   FS.readFileSync(Path.join(__dirname, '../docs/overview.md.hbs')).toString());
 const overview    = overviewTpl({ SEPARATOR: SEPARATOR });

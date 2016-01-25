@@ -6,12 +6,7 @@ CanvasNative is a method of representing Canvas documents in a linear fashion
 This project comprises the specification and utilities for the CanvasNative
 format.
 
-## Documentation Note
-
-CanvasNative uses an invisible character to separate parts of its lines. For
-readability, the documentation replaces that character with `{{SEPARATOR}}`.
-
-## Building
+## Development
 
 A single command will build distribution code, and the README file:
 
@@ -20,6 +15,25 @@ npm run build
 ```
 
 **Make sure and run this before each commit!**
+
+While developing, it is useful to run `npm run watch`. This will run a
+foreground process that monitors all build- and test-dependent files, and run
+the build and test processes as needed.
+
+To run the watch command, both `watchman` and `pywatchman` are required. On OS X
+with Homebrew and Python already installed, the installation looks like this:
+
+```sh
+brew install watchman
+sudo pip install pywatchman
+```
+
+Then, in a new terminal window, `npm run watch` should work.
+
+## Documentation Note
+
+CanvasNative uses an invisible character to separate parts of its lines. For
+readability, the documentation replaces that character with `{{SEPARATOR}}`.
 
 ## Types
 

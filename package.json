@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "make",
-    "test": "bin/test"
+    "test": "bin/test",
+    "watch": "make watch"
   },
   "devDependencies": {
     "babel-cli": "6.4.5",
