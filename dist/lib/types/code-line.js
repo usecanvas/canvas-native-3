@@ -65,7 +65,7 @@ var CodeLine = function (_Type) {
      *
      * @static
      * @method
-     * @param {string} markdown The Markdown
+     * @param {string} markdown The Markdokk
      /**
      * @static
      * @see Type.markdownPattern

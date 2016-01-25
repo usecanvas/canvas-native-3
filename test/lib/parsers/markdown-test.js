@@ -1,9 +1,5 @@
-//import Paragraph         from '../../../lib/types/paragraph';
-import Parser            from '../../../lib/parsers/markdown';
-//import Title             from '../../../lib/types/title';
-//import UnorderedListItem from '../../../lib/types/unordered-list-item';
-//import { SEPARATOR }     from '../../../lib/constants.json';
-import { expect    }     from 'chai';
+import Parser     from '../../../lib/parsers/markdown';
+import { expect } from 'chai';
 
 describe('Parsers.Markdown', () => {
   it('parses markdown lines into an array of objects', () => {
