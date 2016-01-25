@@ -61,12 +61,6 @@ var CodeLine = function (_Type) {
     }
 
     /**
-     * Determine if the Markdown text is a code fence.
-     *
-     * @static
-     * @method
-     * @param {string} markdown The Markdokk
-     /**
      * @static
      * @see Type.markdownPattern
      */
@@ -86,6 +80,22 @@ var CodeLine = function (_Type) {
       }
 
       return _get(Object.getPrototypeOf(CodeLine), 'matchMarkdown', this).apply(this, arguments);
+    }
+
+    /**
+     * Determine if the Markdown text is a code fence.
+     *
+     * @static
+     * @method
+     * @param {string} markdown The Markdown to test as a possible code fence
+     * @return {boolean}
+     */
+
+  }, {
+    key: 'matchFence',
+    value: function matchFence(markdown) {
+      return (/^```/.test(markdown)
+      );
     }
   }, {
     key: 'markdownPattern',

@@ -50,7 +50,7 @@ function parse(markdown) {
       skipEmptyLine = true;
     }
 
-    if (/^```/.test(sourceLine)) {
+    if (_codeLine2.default.matchFence(sourceLine)) {
       if (groupType === _codeLine2.default.groupType) {
         groupType = null;
       } else {
