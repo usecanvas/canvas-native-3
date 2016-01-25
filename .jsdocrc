@@ -1,6 +1,6 @@
 {
   "opts": {
-    "destination": "./out/",
+    "destination": "./docs/",
     "package": "package.json",
     "readme": "README.md",
     "template": "node_modules/loke-jsdoc-theme"

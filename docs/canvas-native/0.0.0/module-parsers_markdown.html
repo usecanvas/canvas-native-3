@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>parsers/markdown - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav class="nav">
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-formatters_markdown.html">formatters/markdown</a><ul class='methods'><li data-type='method'><a href="module-formatters_markdown.html#~format">format</a></li></ul></li><li><a href="module-parsers_markdown.html">parsers/markdown</a><ul class='methods'><li data-type='method'><a href="module-parsers_markdown.html#~parse">parse</a></li></ul></li><li><a href="Parsers.module_Native.html">Native</a><ul class='methods'><li data-type='method'><a href="Parsers.module_Native.html#~parse">parse</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="BlockquoteLine.html">BlockquoteLine</a><ul class='methods'><li data-type='method'><a href="BlockquoteLine.html#toJSON">toJSON</a></li><li data-type='method'><a href="BlockquoteLine.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="ChecklistItem.html">ChecklistItem</a><ul class='methods'><li data-type='method'><a href="ChecklistItem.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="ChecklistItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li><li><a href="CodeLine.html">CodeLine</a><ul class='methods'><li data-type='method'><a href="CodeLine.html#.matchFence">matchFence</a></li><li data-type='method'><a href="CodeLine.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="CodeLine.html#toJSON">toJSON</a></li><li data-type='method'><a href="CodeLine.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Heading.html">Heading</a><ul class='methods'><li data-type='method'><a href="Heading.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="Heading.html#toJSON">toJSON</a></li><li data-type='method'><a href="Heading.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="HorizontalRule.html">HorizontalRule</a><ul class='methods'><li data-type='method'><a href="HorizontalRule.html#toJSON">toJSON</a></li><li data-type='method'><a href="HorizontalRule.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Image.html">Image</a><ul class='methods'><li data-type='method'><a href="Image.html#toJSON">toJSON</a></li><li data-type='method'><a href="Image.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="LinkDefinition.html">LinkDefinition</a><ul class='methods'><li data-type='method'><a href="LinkDefinition.html#toJSON">toJSON</a></li><li data-type='method'><a href="LinkDefinition.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="OrderedListItem.html">OrderedListItem</a><ul class='methods'><li data-type='method'><a href="OrderedListItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li><li><a href="Paragraph.html">Paragraph</a><ul class='methods'><li data-type='method'><a href="Paragraph.html#toJSON">toJSON</a></li><li data-type='method'><a href="Paragraph.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="Type.html">Type</a><ul class='methods'><li data-type='method'><a href="Type.html#.buildNative">buildNative</a></li><li data-type='method'><a href="Type.html#.matchMarkdown">matchMarkdown</a></li><li data-type='method'><a href="Type.html#.matchNative">matchNative</a></li><li data-type='method'><a href="Type.html#toJSON">toJSON</a></li><li data-type='method'><a href="Type.html#toMarkdown">toMarkdown</a></li></ul></li><li><a href="UnorderedListItem.html">UnorderedListItem</a><ul class='methods'><li data-type='method'><a href="UnorderedListItem.html#buildMarkdownDelimiter">buildMarkdownDelimiter</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">parsers/markdown</h1>
+    
+
+    <!--container.tmpl-->
+
+
+
+
+
+<section>
+
+
+
+<header data-tmpl="container.tmpl">
+    
+      <h2>Module: parsers/markdown</h2>
+        
+            
+        
+    
+
+    
+      <div class="bs-callout bs-callout-default">
+        <h5>Members</h5>
+        <br />
+        <dl class="dl-horizontal methods-members">
+        <dt>Methods</dt><dd><ul>
+            <li><a href="#parse">parse</a></li>
+            </ul></dd></dl></div>
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>A module that exposes a single function for parsing Markdown text into
+line objects</p></div>
+        
+
+        
+            <!--method.tmpl-->
+<div class="method-details">
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="parsers_markdown.js.html">markdown.js</a>:<a href="parsers_markdown.js.html#line4">4</a>
+  </code>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="collapse_" id="methodCollapse-parsers/markdown">
+
+  
+
+  
+
+<!-- details.tmpl -->
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="parsers_markdown.js.html">markdown.js</a>:<a href="parsers_markdown.js.html#line4">4</a>
+  </code>
+</div>
+
+
+
+
+
+
+
+<dl class="dl-horizontal">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!--
+<pre>
+{"comment":"/**\n * A module that exposes a single function for parsing Markdown text into\n * line objects\n *\n * @module\n */","meta":{"range":[88,199],"filename":"markdown.js","lineno":4,"path":"/Users/clem/Projects/canvas-native/lib/parsers","code":{},"shortpath":"parsers/markdown.js"},"description":"<p>A module that exposes a single function for parsing Markdown text into\nline objects</p>","kind":"module","name":"parsers/markdown","longname":"module:parsers/markdown","___id":"T000002R000008","___s":true,"attribs":"","id":"parsers/markdown","ancestors":[]}
+</pre>
+-->
+</div>
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            <!--method.tmpl-->
+<div class="method-details">
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="parsers_markdown.js.html">markdown.js</a>:<a href="parsers_markdown.js.html#line21">21</a>
+  </code>
+</div>
+
+
+
+
+    
+
+    
+
+    <h4 class="name" id="~parse">
+      <a href="#params-parse"><span class="type-signature">(inner) </span>parse</a><span class="signature">(markdown)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="Type.html">Type</a>>}</span>
+
+    </h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="description">
+    <p>Parse a Markdown string and return an array of line objects.</p>
+</div>
+
+
+
+
+
+
+
+
+<div class="collapse_" id="methodCollapse-parse">
+
+  
+
+  
+
+<!-- details.tmpl -->
+
+
+
+
+
+
+
+
+<dl class="dl-horizontal">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+  <div id="params-parse" class="bs-callout bs-callout-primary">
+    <h5>Parameters</h5>
+    <!--params.tmpl-->
+
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>markdown</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Markdown text to parse</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="bs-callout bs-callout-success">
+    <h5>Returns </h5>
+
+        
+<div class="param-desc">
+    <p>An array of CanvasNative line objects</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="Type.html">Type</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+</div>
+  
+
+
+
+
+
+
+</div>
+
+<!--
+<pre>
+{"comment":"/**\n * Parse a Markdown string and return an array of line objects.\n *\n * @function\n * @param {string} markdown The Markdown text to parse\n * @return {Array<Type>} An array of CanvasNative line objects\n */","meta":{"range":[435,1584],"filename":"markdown.js","lineno":21,"path":"/Users/clem/Projects/canvas-native/lib/parsers","code":{"id":"astnode100000059","name":"parse","type":"FunctionDeclaration","paramnames":["markdown"]},"vars":{"sourceLines":"module:parsers/markdown~parse~sourceLines","result":"module:parsers/markdown~parse~result","groupType":"module:parsers/markdown~groupType","language":"module:parsers/markdown~language","skipEmptyLine":"module:parsers/markdown~skipEmptyLine","index":"module:parsers/markdown~parse~index","len":"module:parsers/markdown~parse~len","sourceLine":"module:parsers/markdown~parse~sourceLine","line":"module:parsers/markdown~line","fenceMatch":"module:parsers/markdown~fenceMatch","klass":"module:parsers/markdown~parse~klass"},"shortpath":"parsers/markdown.js"},"description":"<p>Parse a Markdown string and return an array of line objects.</p>","kind":"function","params":[{"type":{"names":["string"]},"description":"<p>The Markdown text to parse</p>","name":"markdown"}],"returns":[{"type":{"names":["Array.<Type>"]},"description":"<p>An array of CanvasNative line objects</p>"}],"name":"parse","longname":"module:parsers/markdown~parse","scope":"inner","memberof":"module:parsers/markdown","___id":"T000002R000011","___s":true,"attribs":"<span class=\"type-signature\">(inner) </span>","id":"~parse","signature":"<span class=\"signature\">(markdown)</span><span class=\"type-signature\"> &rarr; {Array.&lt;<a href=\"Type.html\">Type</a>>}</span>","ancestors":["<a href=\"module-parsers_markdown.html\">parsers/markdown</a>~"]}
+</pre>
+-->
+</div>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> using the LOKE theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
