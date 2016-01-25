@@ -61,6 +61,12 @@ var CodeLine = function (_Type) {
     }
 
     /**
+     * Determine if the Markdown text is a code fence.
+     *
+     * @static
+     * @method
+     * @param {string} markdown The Markdown
+     /**
      * @static
      * @see Type.markdownPattern
      */
