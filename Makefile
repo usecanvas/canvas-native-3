@@ -15,12 +15,12 @@ dist: lib/types/index.json lib/**/* package.json
 lib/types/index.json: lib/types/index.yaml
 	$(YAML) --pretty lib/types/index.yaml > lib/types/index.json
 
-README.md: docs/overview.md.hbs bin/readme lib/types/index.yaml lib/constants.json
+README.md: bin/templates/overview.md.hbs bin/readme lib/types/index.yaml lib/constants.json
 	bin/readme
 
 test:
 	npm test
 
 watch:
-	watchman-make -p 'docs/**/*' 'lib/**/*' package.json -t build \
-		-p 'docs/**/*' 'lib/**/*.js' 'lib/**/*.json' 'test/**/*' package.json -t test
+	watchman-make -p 'bin/templates/**/*' 'lib/**/*' package.json -t build \
+		-p 'bin/templates/**/*' 'lib/**/*.js' 'lib/**/*.json' 'test/**/*' package.json -t test
