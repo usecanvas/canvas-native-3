@@ -1,11 +1,11 @@
-import Formatter  from '../../../lib/formatters/html';
-import Parser     from '../../../lib/parsers/markdown';
+import format     from '../../../lib/formatters/html';
+import parse      from '../../../lib/parsers/markdown';
 import { expect } from 'chai';
 import { trim   } from '../../test-helper';
 
 describe('formatters/html', () => {
   it('formats documents as HTML', () => {
-    const nativeLines = Parser.parse(trim(`\
+    const nativeLines = parse(trim(`\
        # Title
        Foo
        Bar
@@ -15,7 +15,7 @@ describe('formatters/html', () => {
        \`\`\`
        The End`));
 
-    const html = Formatter.format(nativeLines);
+    const html = format(nativeLines);
 
     expect(html).to.eql(trim(`\
        <h1>Title</h1>

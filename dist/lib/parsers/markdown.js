@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = parse;
 
 var _parseOrder = require('./parse-order');
 
@@ -20,9 +21,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @module
  */
-exports.default = {
-  parse: parse
-};
 
 /**
  * Parse a Markdown string and return an array of line objects.
@@ -31,7 +29,6 @@ exports.default = {
  * @param {string} markdown The Markdown text to parse
  * @return {Array<Type>} An array of CanvasNative line objects
  */
-
 function parse(markdown) {
   var sourceLines = markdown.split('\n');
   var result = [];

@@ -1,7 +1,7 @@
-import Parser     from '../../../lib/parsers/markdown';
+import parse      from '../../../lib/parsers/markdown';
 import { expect } from 'chai';
 
-describe('Parsers.Markdown', () => {
+describe('parsers/markdown', () => {
   it('parses markdown lines into an array of objects', () => {
     const source = [
       '# Title',
@@ -11,7 +11,7 @@ describe('Parsers.Markdown', () => {
       '- Qux',
     ].join('\n');
 
-    const result = Parser.parse(source);
+    const result = parse(source);
 
     expect(result.map(r => r.type)).to.eql([
       'title',
@@ -31,7 +31,7 @@ describe('Parsers.Markdown', () => {
       'Qux',
     ].join('\n');
 
-    const result = Parser.parse(source);
+    const result = parse(source);
 
     expect(result.map(r => r.content)).to.eql([
       'Title',
@@ -52,7 +52,7 @@ describe('Parsers.Markdown', () => {
       'End paragraph',
     ].join('\n');
 
-    const result = Parser.parse(source);
+    const result = parse(source);
 
     expect(result.map(r => [r.type, r.content])).to.eql([
       ['title', 'Title'],
@@ -70,7 +70,7 @@ describe('Parsers.Markdown', () => {
       '# Title',
     ].join('\n');
 
-    const result = Parser.parse(source);
+    const result = parse(source);
 
     expect(result.map(r => r.type)).to.eql([
       'heading',

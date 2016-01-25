@@ -25,9 +25,6 @@ var MAX_LENGTH = 256;
  *
  * @module
  */
-exports.default = {
-  format: format
-};
 
 /**
  * Format an array of CanvasNative lines as a summary.
@@ -36,7 +33,6 @@ exports.default = {
  * @param {Array<Type>} nativeLines The CanvasNative lines
  * @return {string} The summary
  */
-
 function format(native) {
   var result = '';
   var scanner = new _scanner2.default(native);

@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = format;
 /**
  * A module that exposes a single function for formatting an array of
  * CanvasNative line objects as JSON
  *
  * @module
  */
-exports.default = {
-  format: format
-};
 
 /**
  * Format an array of CanvasNative lines as a JSON-serializable object.
@@ -20,7 +18,6 @@ exports.default = {
  * @param {Array<Type>} nativeLines The CanvasNative lines
  * @return {string} The JSON object representing the document
  */
-
 function format(nativeLines) {
   var json = createCanvas(nativeLines);
 

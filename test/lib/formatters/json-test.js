@@ -1,24 +1,24 @@
-import Formatter  from '../../../lib/formatters/json';
-import MdParser   from '../../../lib/parsers/markdown';
+import format     from '../../../lib/formatters/json';
+import parse      from '../../../lib/parsers/markdown';
 import { expect } from 'chai';
 import { trim   } from '../../test-helper';
 
 describe('formatters/json', () => {
   it('includes a title', () => {
-    const native = MdParser.parse(`# Foo`);
+    const native = parse(`# Foo`);
 
-    expect(Formatter.format(native).meta).to.eql({
+    expect(format(native).meta).to.eql({
       title: 'Foo'
     });
   });
 
   it('formats simple paragraphs as JSON', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
       Foo
       Bar
       Baz`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type   : 'paragraph',
         meta   : {},
@@ -38,13 +38,13 @@ describe('formatters/json', () => {
   });
 
   it('groups lists', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
       - Foo
       - Bar
       - Baz
       Paragraph`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type   : 'unordered-list',
         meta   : { level: 0 },
@@ -75,11 +75,11 @@ describe('formatters/json', () => {
   });
 
   it('does not nest under headers', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
       # Title
         - UL-1-0`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type   : 'title',
         meta   : {},
@@ -106,7 +106,7 @@ describe('formatters/json', () => {
   });
 
   it('does not create consecutive equally-nested lists', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
       # Title
 
       - UL-0-0
@@ -115,7 +115,7 @@ describe('formatters/json', () => {
         - UL-1-0
       - UL-0-2`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type: 'title',
         meta: {},
@@ -168,7 +168,7 @@ describe('formatters/json', () => {
   });
 
   it('handles nested lists', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
     # Title
       - UL-1-0
         - UL-2-0
@@ -181,7 +181,7 @@ describe('formatters/json', () => {
     - UL-0-0
     Paragraph`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type: 'title',
         meta: {},
@@ -289,14 +289,14 @@ describe('formatters/json', () => {
   });
 
   it('wraps code blocks', () => {
-    const native = MdParser.parse(trim(`\
+    const native = parse(trim(`\
       \`\`\`
       defmodule Foo
       end
       \`\`\`
       Paragraph`));
 
-    expect(Formatter.format(native).content).to.eql([
+    expect(format(native).content).to.eql([
       {
         type   : 'code',
         content: [

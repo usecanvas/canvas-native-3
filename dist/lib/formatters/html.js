@@ -3,18 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = format;
 
 var _markdownIt = require('markdown-it');
 
 var _markdownIt2 = _interopRequireDefault(_markdownIt);
 
-var _markdown = require('./markdown');
-
-var _markdown2 = _interopRequireDefault(_markdown);
-
 var _markdownItCheckbox = require('markdown-it-checkbox');
 
 var _markdownItCheckbox2 = _interopRequireDefault(_markdownItCheckbox);
+
+var _markdown = require('./markdown');
+
+var _markdown2 = _interopRequireDefault(_markdown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,9 +25,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @module
  */
-exports.default = {
-  format: format
-};
 
 var renderer = new _markdownIt2.default({
   linkify: true
@@ -40,5 +38,5 @@ var renderer = new _markdownIt2.default({
  * @return {string} The HTML text
  */
 function format(nativeLines) {
-  return renderer.render(_markdown2.default.format(nativeLines));
+  return renderer.render((0, _markdown2.default)(nativeLines));
 }

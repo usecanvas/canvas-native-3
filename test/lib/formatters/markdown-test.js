@@ -1,11 +1,11 @@
-import Formatter  from '../../../lib/formatters/markdown';
-import Parser     from '../../../lib/parsers/markdown';
+import format     from '../../../lib/formatters/markdown';
+import parse      from '../../../lib/parsers/markdown';
 import { expect } from 'chai';
 import { trim   } from '../../test-helper';
 
-describe('Formatters.Markdown', () => {
+describe('formatters/markdown', () => {
   it('formats native lines as Markdown', () => {
-    const nativeLines = Parser.parse(trim(`\
+    const nativeLines = parse(trim(`\
        # Title
        Foo
        Bar
@@ -15,7 +15,7 @@ describe('Formatters.Markdown', () => {
        \`\`\`
        The End`));
 
-    const markdown = Formatter.format(nativeLines);
+    const markdown = format(nativeLines);
 
     expect(markdown).to.eq(trim(`\
       # Title

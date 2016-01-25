@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = parse;
 
 var _parseOrder = require('./parse-order');
 
@@ -14,11 +15,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * A module that exposes a single function for parsing CanvasNative text into
  * line objects
  *
- * @module Parsers.Native
+ * @module
  */
-exports.default = {
-  parse: parse
-};
 
 /**
  * Parse a CanvasNative-formatted string and return an array of line objects.
@@ -27,7 +25,6 @@ exports.default = {
  * @param {string} native The native text to parse
  * @return {Array<Type>} An array of CanvasNative line objects
  */
-
 function parse(native) {
   var sourceLines = native.split('\n');
   var result = [];

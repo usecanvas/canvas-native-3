@@ -5,6 +5,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = format;
 
 var _scanner = require('../scanner');
 
@@ -18,9 +19,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @module
  */
-exports.default = {
-  format: format
-};
 
 /**
  * Format an array of CanvasNative lines as Markdown.
@@ -29,7 +27,6 @@ exports.default = {
  * @param {Array<Type>} nativeLines The CanvasNative lines
  * @return {string} The Markdown text
  */
-
 function format(nativeLines) {
   var result = [];
   var scanner = new _scanner2.default(nativeLines);
