@@ -11,7 +11,7 @@ var _parseOrder2 = _interopRequireDefault(_parseOrder);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * A module that exposes a single function for parsing CanvasNative test into
+ * A module that exposes a single function for parsing CanvasNative text into
  * line objects
  *
  * @module Parsers.Native
