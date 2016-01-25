@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>formatters/summary - Documentation</title>
+    <title>parsers/native - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">formatters/summary</h1>
+    <h1 class="page-title">parsers/native</h1>
     
 
     <!--container.tmpl-->
@@ -49,7 +49,7 @@
 
 <header data-tmpl="container.tmpl">
     
-      <h2>Module: formatters/summary</h2>
+      <h2>Module: parsers/native</h2>
         
             
         
@@ -64,8 +64,8 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>A module that exposes a single function for formatting an array of
-CanvasNative line objects as a plaintext summary</p></div>
+            <div class="description"><p>A module that exposes a single function for parsing CanvasNative text into
+line objects</p></div>
         
 
         
@@ -80,7 +80,132 @@ CanvasNative line objects as a plaintext summary</p></div>
 <div class="pull-right source-link-container">
   <code class="source-link" data-tmpl="method-tmpl(1)">
     <i class="fa fa-file-o"></i>
-    <a href="formatters_summary.js.html">summary.js</a>:<a href="formatters_summary.js.html#line20">20</a>
+    <a href="parsers_native.js.html">native.js</a>:<a href="parsers_native.js.html#line3">3</a>
+  </code>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="collapse_" id="methodCollapse-parsers/native">
+
+  
+
+  
+
+<!-- details.tmpl -->
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="parsers_native.js.html">native.js</a>:<a href="parsers_native.js.html#line3">3</a>
+  </code>
+</div>
+
+
+
+
+
+
+
+<dl class="dl-horizontal">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!--
+<pre>
+{"comment":"/**\n * A module that exposes a single function for parsing CanvasNative text into\n * line objects\n *\n * @module\n */","meta":{"range":[42,157],"filename":"native.js","lineno":3,"path":"/Users/clem/Projects/canvas-native/lib/parsers","code":{},"shortpath":"parsers/native.js"},"description":"<p>A module that exposes a single function for parsing CanvasNative text into\nline objects</p>","kind":"module","name":"parsers/native","longname":"module:parsers/native","___id":"T000002R000095","___s":true,"attribs":"","id":"parsers/native","ancestors":[]}
+</pre>
+-->
+</div>
+
+        
+            <!--method.tmpl-->
+<div class="method-details">
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="parsers_native.js.html">native.js</a>:<a href="parsers_native.js.html#line17">17</a>
   </code>
 </div>
 
@@ -91,8 +216,8 @@ CanvasNative line objects as a plaintext summary</p></div>
 
     
 
-    <h4 class="name" id="module:formatters/summary">
-      <a href="#params-(require("formatters/summary"))"><span class="type-signature"></span>(require("formatters/summary"))</a><span class="signature">(nativeLines)</span><span class="type-signature"> &rarr; {string}</span>
+    <h4 class="name" id="module:parsers/native">
+      <a href="#params-(require("parsers/native"))"><span class="type-signature"></span>(require("parsers/native"))</a><span class="signature">(native)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="Type.html">Type</a>>}</span>
 
     </h4>
 
@@ -111,7 +236,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
 
 <div class="description">
-    <p>Format an array of CanvasNative lines as a summary.</p>
+    <p>Parse a CanvasNative-formatted string and return an array of line objects.</p>
 </div>
 
 
@@ -121,7 +246,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
 
 
-<div class="collapse_" id="methodCollapse-(require("formatters/summary"))">
+<div class="collapse_" id="methodCollapse-(require("parsers/native"))">
 
   
 
@@ -170,7 +295,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
 
 
-  <div id="params-(require("formatters/summary"))" class="bs-callout bs-callout-primary">
+  <div id="params-(require("parsers/native"))" class="bs-callout bs-callout-primary">
     <h5>Parameters</h5>
     <!--params.tmpl-->
 
@@ -197,13 +322,13 @@ CanvasNative line objects as a plaintext summary</p></div>
 
         <tr>
             
-                <td class="name"><code>nativeLines</code></td>
+                <td class="name"><code>native</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;<a href="Type.html">Type</a>></span>
+<span class="param-type">string</span>
 
 
             
@@ -213,7 +338,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
             
 
-            <td class="description last"><p>The CanvasNative lines</p></td>
+            <td class="description last"><p>The native text to parse</p></td>
         </tr>
 
     
@@ -239,7 +364,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
         
 <div class="param-desc">
-    <p>The summary</p>
+    <p>An array of CanvasNative line objects</p>
 </div>
 
 
@@ -250,7 +375,7 @@ CanvasNative line objects as a plaintext summary</p></div>
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">Array.&lt;<a href="Type.html">Type</a>></span>
 
 
     </dd>
@@ -269,132 +394,7 @@ CanvasNative line objects as a plaintext summary</p></div>
 
 <!--
 <pre>
-{"comment":"/**\n * Format an array of CanvasNative lines as a summary.\n *\n * @function\n * @param {Array<Type>} nativeLines The CanvasNative lines\n * @return {string} The summary\n */","meta":{"range":[414,1304],"filename":"summary.js","lineno":20,"path":"/Users/clem/Projects/canvas-native/lib/formatters","code":{"id":"astnode100000544","name":"module.exports","type":"FunctionDeclaration","paramnames":["native"]},"shortpath":"formatters/summary.js"},"description":"<p>Format an array of CanvasNative lines as a summary.</p>","kind":"function","params":[{"type":{"names":["Array.<Type>"]},"description":"<p>The CanvasNative lines</p>","name":"nativeLines"}],"returns":[{"type":{"names":["string"]},"description":"<p>The summary</p>"}],"name":"(require(\"formatters/summary\"))","longname":"module:formatters/summary","___id":"T000002R000057","___s":true,"attribs":"<span class=\"type-signature\"></span>","id":"module:formatters/summary","signature":"<span class=\"signature\">(nativeLines)</span><span class=\"type-signature\"> &rarr; {string}</span>","ancestors":[]}
-</pre>
--->
-</div>
-
-        
-            <!--method.tmpl-->
-<div class="method-details">
-
-
-
-  <!--source-link.tmpl-->
-
-
-<div class="pull-right source-link-container">
-  <code class="source-link" data-tmpl="method-tmpl(1)">
-    <i class="fa fa-file-o"></i>
-    <a href="formatters_summary.js.html">summary.js</a>:<a href="formatters_summary.js.html#line6">6</a>
-  </code>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="collapse_" id="methodCollapse-formatters/summary">
-
-  
-
-  
-
-<!-- details.tmpl -->
-
-
-
-  <!--source-link.tmpl-->
-
-
-<div class="pull-right source-link-container">
-  <code class="source-link" data-tmpl="method-tmpl(1)">
-    <i class="fa fa-file-o"></i>
-    <a href="formatters_summary.js.html">summary.js</a>:<a href="formatters_summary.js.html#line6">6</a>
-  </code>
-</div>
-
-
-
-
-
-
-
-<dl class="dl-horizontal">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<!--
-<pre>
-{"comment":"/**\n * A module that exposes a single function for formatting an array of\n * CanvasNative line objects as a plaintext summary\n *\n * @module\n */","meta":{"range":[99,242],"filename":"summary.js","lineno":6,"path":"/Users/clem/Projects/canvas-native/lib/formatters","code":{},"shortpath":"formatters/summary.js"},"description":"<p>A module that exposes a single function for formatting an array of\nCanvasNative line objects as a plaintext summary</p>","kind":"module","name":"formatters/summary","longname":"module:formatters/summary","___id":"T000002R000055","___s":true,"attribs":"","id":"formatters/summary","ancestors":[]}
+{"comment":"/**\n * Parse a CanvasNative-formatted string and return an array of line objects.\n *\n * @function\n * @param {string} native The native text to parse\n * @return {Array<Type>} An array of CanvasNative line objects\n */","meta":{"range":[375,809],"filename":"native.js","lineno":17,"path":"/Users/clem/Projects/canvas-native/lib/parsers","code":{"id":"astnode100000860","name":"module.exports","type":"FunctionDeclaration","paramnames":["native"]},"shortpath":"parsers/native.js"},"description":"<p>Parse a CanvasNative-formatted string and return an array of line objects.</p>","kind":"function","params":[{"type":{"names":["string"]},"description":"<p>The native text to parse</p>","name":"native"}],"returns":[{"type":{"names":["Array.<Type>"]},"description":"<p>An array of CanvasNative line objects</p>"}],"name":"(require(\"parsers/native\"))","longname":"module:parsers/native","___id":"T000002R000096","___s":true,"attribs":"<span class=\"type-signature\"></span>","id":"module:parsers/native","signature":"<span class=\"signature\">(native)</span><span class=\"type-signature\"> &rarr; {Array.&lt;<a href=\"Type.html\">Type</a>>}</span>","ancestors":[]}
 </pre>
 -->
 </div>
