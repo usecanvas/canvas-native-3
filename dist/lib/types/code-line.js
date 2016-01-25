@@ -79,7 +79,13 @@ var CodeLine = function (_Type) {
         return null;
       }
 
-      return _get(Object.getPrototypeOf(CodeLine), 'matchMarkdown', this).apply(this, arguments);
+      var line = _get(Object.getPrototypeOf(CodeLine), 'matchMarkdown', this).apply(this, arguments);
+
+      if (context.language) {
+        line.meta.language = context.language;
+      }
+
+      return line;
     }
 
     /**
@@ -94,8 +100,7 @@ var CodeLine = function (_Type) {
   }, {
     key: 'matchFence',
     value: function matchFence(markdown) {
-      return (/^```/.test(markdown)
-      );
+      return markdown.match(/^```([^`]*)/);
     }
   }, {
     key: 'markdownPattern',

@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * A module that exposes a single function for parsing Markdown text into
  * line objects
  *
- * @module Parsers.Markdown
+ * @module
  */
 exports.default = {
   parse: parse
@@ -36,8 +36,9 @@ function parse(markdown) {
   var sourceLines = markdown.split('\n');
   var result = [];
 
-  var skipEmptyLine = true;
   var groupType = null;
+  var language = null;
+  var skipEmptyLine = true;
   for (var index = 0, len = sourceLines.length; index < len; index++) {
     var sourceLine = sourceLines[index];
     var line = undefined;
@@ -50,11 +51,14 @@ function parse(markdown) {
       skipEmptyLine = true;
     }
 
-    if (_codeLine2.default.matchFence(sourceLine)) {
+    var fenceMatch = undefined;
+    if (fenceMatch = _codeLine2.default.matchFence(sourceLine)) {
       if (groupType === _codeLine2.default.groupType) {
         groupType = null;
+        language = null;
       } else {
         groupType = _codeLine2.default.groupType;
+        language = fenceMatch[1];
       }
 
       continue;
@@ -68,7 +72,7 @@ function parse(markdown) {
       for (var _iterator = _parseOrder2.default[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var klass = _step.value;
 
-        if (line = klass.matchMarkdown(sourceLine, { groupType: groupType, index: index })) {
+        if (line = klass.matchMarkdown(sourceLine, { groupType: groupType, index: index, language: language })) {
           break;
         }
       }

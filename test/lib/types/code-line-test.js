@@ -12,6 +12,15 @@ describe('Type: CodeLine', () => {
     it('does not match code not in a code group', () => {
       expect(CodeLine.matchMarkdown('Code')).to.be.null;
     });
+
+    it('includes the language if provided', () => {
+      expect(CodeLine.matchMarkdown('Code', {
+        groupType: 'code',
+        language: 'ruby'
+      }).meta).to.eql({
+        language: 'ruby'
+      });
+    });
   });
 
   describe('.matchNative', () => {
