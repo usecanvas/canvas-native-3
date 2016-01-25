@@ -98,6 +98,16 @@ var Type = function () {
     }
 
     /**
+     * @property {boolean} isNesting Whether this line is nestable in groups
+     */
+
+  }, {
+    key: 'isNesting',
+    get: function get() {
+      return false;
+    }
+
+    /**
      * @property {boolean} isSummarized Whether this line is included in a Canvas
      *   document summary
      */

@@ -71,6 +71,11 @@ var ListItem = function (_Type) {
      * @see Type.groupType
      */
 
+  }, {
+    key: 'isNesting',
+    get: function get() {
+      return true;
+    }
   }], [{
     key: 'matchMarkdown',
 

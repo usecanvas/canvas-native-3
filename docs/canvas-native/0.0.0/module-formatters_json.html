@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Native - Documentation</title>
+    <title>formatters/json - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Native</h1>
+    <h1 class="page-title">formatters/json</h1>
     
 
     <!--container.tmpl-->
@@ -49,6 +49,11 @@
 
 <header data-tmpl="container.tmpl">
     
+      <h2>Module: formatters/json</h2>
+        
+            
+        
+    
 
     
       <div class="bs-callout bs-callout-default">
@@ -56,7 +61,7 @@
         <br />
         <dl class="dl-horizontal methods-members">
         <dt>Methods</dt><dd><ul>
-            <li><a href="#parse">parse</a></li>
+            <li><a href="#format">format</a></li>
             </ul></dd></dl></div>
 </header>
 
@@ -64,11 +69,13 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>A module that exposes a single function for parsing CanvasNative text into
-line objects</p></div>
+            <div class="description"><p>A module that exposes a single function for formatting an array of
+CanvasNative line objects as JSON</p></div>
         
 
-        <!-- details.tmpl -->
+        
+            <!--method.tmpl-->
+<div class="method-details">
 
 
 
@@ -78,7 +85,49 @@ line objects</p></div>
 <div class="pull-right source-link-container">
   <code class="source-link" data-tmpl="method-tmpl(1)">
     <i class="fa fa-file-o"></i>
-    <a href="parsers_native.js.html">native.js</a>:<a href="parsers_native.js.html#line3">3</a>
+    <a href="formatters_json.js.html">json.js</a>:<a href="formatters_json.js.html#line1">1</a>
+  </code>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="collapse_" id="methodCollapse-formatters/json">
+
+  
+
+  
+
+<!-- details.tmpl -->
+
+
+
+  <!--source-link.tmpl-->
+
+
+<div class="pull-right source-link-container">
+  <code class="source-link" data-tmpl="method-tmpl(1)">
+    <i class="fa fa-file-o"></i>
+    <a href="formatters_json.js.html">json.js</a>:<a href="formatters_json.js.html#line1">1</a>
   </code>
 </div>
 
@@ -121,6 +170,34 @@ line objects</p></div>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!--
+<pre>
+{"comment":"/**\n * A module that exposes a single function for formatting an array of\n * CanvasNative line objects as JSON\n *\n * @module\n */","meta":{"range":[0,128],"filename":"json.js","lineno":1,"path":"/Users/clem/Projects/canvas-native/lib/formatters","code":{},"shortpath":"formatters/json.js"},"description":"<p>A module that exposes a single function for formatting an array of\nCanvasNative line objects as JSON</p>","kind":"module","name":"formatters/json","longname":"module:formatters/json","___id":"T000002R000008","___s":true,"attribs":"","id":"formatters/json","ancestors":[]}
+</pre>
+-->
+</div>
+
         
     
     </div>
@@ -152,7 +229,7 @@ line objects</p></div>
 <div class="pull-right source-link-container">
   <code class="source-link" data-tmpl="method-tmpl(1)">
     <i class="fa fa-file-o"></i>
-    <a href="parsers_native.js.html">native.js</a>:<a href="parsers_native.js.html#line20">20</a>
+    <a href="formatters_json.js.html">json.js</a>:<a href="formatters_json.js.html#line18">18</a>
   </code>
 </div>
 
@@ -163,8 +240,8 @@ line objects</p></div>
 
     
 
-    <h4 class="name" id="~parse">
-      <a href="#params-parse"><span class="type-signature">(inner) </span>parse</a><span class="signature">(native)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="Type.html">Type</a>>}</span>
+    <h4 class="name" id="~format">
+      <a href="#params-format"><span class="type-signature">(inner) </span>format</a><span class="signature">(nativeLines)</span><span class="type-signature"> &rarr; {string}</span>
 
     </h4>
 
@@ -183,7 +260,7 @@ line objects</p></div>
 
 
 <div class="description">
-    <p>Parse a CanvasNative-formatted string and return an array of line objects.</p>
+    <p>Format an array of CanvasNative lines as a JSON-serializable object.</p>
 </div>
 
 
@@ -193,7 +270,7 @@ line objects</p></div>
 
 
 
-<div class="collapse_" id="methodCollapse-parse">
+<div class="collapse_" id="methodCollapse-format">
 
   
 
@@ -242,7 +319,7 @@ line objects</p></div>
 
 
 
-  <div id="params-parse" class="bs-callout bs-callout-primary">
+  <div id="params-format" class="bs-callout bs-callout-primary">
     <h5>Parameters</h5>
     <!--params.tmpl-->
 
@@ -269,13 +346,13 @@ line objects</p></div>
 
         <tr>
             
-                <td class="name"><code>native</code></td>
+                <td class="name"><code>nativeLines</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Array.&lt;<a href="Type.html">Type</a>></span>
 
 
             
@@ -285,7 +362,7 @@ line objects</p></div>
 
             
 
-            <td class="description last"><p>The native text to parse</p></td>
+            <td class="description last"><p>The CanvasNative lines</p></td>
         </tr>
 
     
@@ -311,7 +388,7 @@ line objects</p></div>
 
         
 <div class="param-desc">
-    <p>An array of CanvasNative line objects</p>
+    <p>The JSON object representing the document</p>
 </div>
 
 
@@ -322,7 +399,7 @@ line objects</p></div>
     </dt>
     <dd>
         
-<span class="param-type">Array.&lt;<a href="Type.html">Type</a>></span>
+<span class="param-type">string</span>
 
 
     </dd>
@@ -341,7 +418,7 @@ line objects</p></div>
 
 <!--
 <pre>
-{"comment":"/**\n * Parse a CanvasNative-formatted string and return an array of line objects.\n *\n * @function\n * @param {string} native The native text to parse\n * @return {Array<Type>} An array of CanvasNative line objects\n */","meta":{"range":[418,837],"filename":"native.js","lineno":20,"path":"/Users/clem/Projects/canvas-native/lib/parsers","code":{"id":"astnode100000882","name":"parse","type":"FunctionDeclaration","paramnames":["native"]},"vars":{"sourceLines":"Parsers.module:Native~parse~sourceLines","result":"Parsers.module:Native~parse~result","sourceLine":"Parsers.module:Native~parse~sourceLine","line":"Parsers.module:Native~line","klass":"Parsers.module:Native~parse~klass"},"shortpath":"parsers/native.js"},"description":"<p>Parse a CanvasNative-formatted string and return an array of line objects.</p>","kind":"function","params":[{"type":{"names":["string"]},"description":"<p>The native text to parse</p>","name":"native"}],"returns":[{"type":{"names":["Array.<Type>"]},"description":"<p>An array of CanvasNative line objects</p>"}],"name":"parse","longname":"Parsers.module:Native~parse","scope":"inner","memberof":"Parsers.module:Native","___id":"T000002R000104","___s":true,"attribs":"<span class=\"type-signature\">(inner) </span>","id":"~parse","signature":"<span class=\"signature\">(native)</span><span class=\"type-signature\"> &rarr; {Array.&lt;<a href=\"Type.html\">Type</a>>}</span>","ancestors":["<a href=\"Parsers.module_Native.html\">.Native</a>~"]}
+{"comment":"/**\n * Format an array of CanvasNative lines as a JSON-serializable object.\n *\n * @function\n * @param {Array<Type>} nativeLines The CanvasNative lines\n * @return {string} The JSON object representing the document\n */","meta":{"range":[376,1481],"filename":"json.js","lineno":18,"path":"/Users/clem/Projects/canvas-native/lib/formatters","code":{"id":"astnode100000048","name":"format","type":"FunctionDeclaration","paramnames":["nativeLines"]},"vars":{"json":"module:formatters/json~format~json","nodeStack":"module:formatters/json~nodeStack","currentNode":"module:formatters/json~currentNode","line":"module:formatters/json~format~line","newNodes":"module:formatters/json~format~newNodes","newGroup":"module:formatters/json~format~newGroup"},"shortpath":"formatters/json.js"},"description":"<p>Format an array of CanvasNative lines as a JSON-serializable object.</p>","kind":"function","params":[{"type":{"names":["Array.<Type>"]},"description":"<p>The CanvasNative lines</p>","name":"nativeLines"}],"returns":[{"type":{"names":["string"]},"description":"<p>The JSON object representing the document</p>"}],"name":"format","longname":"module:formatters/json~format","scope":"inner","memberof":"module:formatters/json","___id":"T000002R000011","___s":true,"attribs":"<span class=\"type-signature\">(inner) </span>","id":"~format","signature":"<span class=\"signature\">(nativeLines)</span><span class=\"type-signature\"> &rarr; {string}</span>","ancestors":["<a href=\"module-formatters_json.html\">formatters/json</a>~"]}
 </pre>
 -->
 </div>
