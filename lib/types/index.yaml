@@ -35,7 +35,7 @@ code-line:
         example: ruby
         description: The language the code line is written in
   examples:
-    markdown: "```\nputs \"hi\"\n```"
+    markdown: "``` ruby\nputs \"hi\"\n```"
 heading:
   title: Heading
   description: >

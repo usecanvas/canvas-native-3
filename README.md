@@ -116,7 +116,7 @@ A code line represents a line of code, typically in a block of other lines of co
 
 ##### Markdown
 
-    ```
+    ``` ruby
     puts "hi"
     ```
 

@@ -45,7 +45,7 @@
       ]
     },
     "examples": {
-      "markdown": "```\nputs \"hi\"\n```"
+      "markdown": "``` ruby\nputs \"hi\"\n```"
     }
   },
   "heading": {
