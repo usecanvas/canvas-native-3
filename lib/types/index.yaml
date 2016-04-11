@@ -55,7 +55,7 @@ horizontal-rule:
     A horizontal rule represents a visual horizontal separator in a document.
   typeKey: hr
   examples:
-    markdown: ---
+    markdown: "---"
 image:
   title: Image
   description: >
@@ -111,14 +111,14 @@ ordered-list-item:
         type: number
         description: The level of nesting of this list item, from 1 to 6
   examples:
-    markdown: 1. Chapter One
+    markdown: "1. Chapter One"
 paragraph:
   title: Paragraph
   description: >
     A plain paragraph of text.
   typeKey: pg
   examples:
-    markdown: This is a paragraph.
+    markdown: "This is a paragraph."
 title:
   title: Title
   description: >
@@ -131,7 +131,7 @@ title:
         type: number
         description: The version of the CanvasNative format this document uses
   examples:
-    markdown: # Title
+    markdown: "# Title"
 unordered-list-item:
   title: Unordered List Item
   description: >
@@ -143,4 +143,4 @@ unordered-list-item:
         type: number
         description: The level of nesting of this list item, from 1 to 6
   examples:
-    markdown: - Foo
+    markdown: "- Foo"
