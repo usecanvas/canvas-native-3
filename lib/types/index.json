@@ -45,7 +45,7 @@
       ]
     },
     "examples": {
-      "markdown": "helloWorld();"
+      "markdown": "```\nputs \"hi\"\n```"
     }
   },
   "heading": {

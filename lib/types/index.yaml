@@ -20,7 +20,7 @@ checklist-item:
         type: boolean
         description: Whether this item is complete
   examples:
-    markdown: - [ ] Buy eggs
+    markdown: "- [ ] Buy eggs"
 code-line:
   title: Code Line
   description: >
@@ -35,7 +35,7 @@ code-line:
         example: ruby
         description: The language the code line is written in
   examples:
-    markdown: helloWorld();
+    markdown: "```\nputs \"hi\"\n```"
 heading:
   title: Heading
   description: >

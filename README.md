@@ -67,19 +67,15 @@ A line of a quote pulled from an outside source.
 
 This type has no parameters.
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-> Hello, world!
-```
+    > Hello, world!
 
 ##### Native
 
-```
-bq|{}|Foo bar
-```
+    bq|{}|Foo bar
 
 ---
 
@@ -94,19 +90,15 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 - `level` (number) - The level of nesting of this checklist item, from 1 to 6
 - `complete` (boolean) - Whether this item is complete
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-- [ ] Buy eggs
-```
+    - [ ] Buy eggs
 
 ##### Native
 
-```
-cl|{"level":1,"complete":"f"}|Foo bar
-```
+    cl|{"level":1,"complete":"f"}|Foo bar
 
 ---
 
@@ -120,19 +112,17 @@ A code line represents a line of code, typically in a block of other lines of co
 
 - `language` (string) - The language the code line is written in
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-helloWorld();
-```
+    ```
+    puts "hi"
+    ```
 
 ##### Native
 
-```
-co|{"language":"ruby"}|Foo bar
-```
+    co|{"language":"ruby"}|Foo bar
 
 ---
 
@@ -146,19 +136,15 @@ A heading represents a line of heading text at a specific level, from one to six
 
 - `level` (number) - The level of heading this is, from 1 to 6
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-# Section Title
-```
+    # Section Title
 
 ##### Native
 
-```
-hd|{"level":1}|Foo bar
-```
+    hd|{"level":1}|Foo bar
 
 ---
 
@@ -170,19 +156,15 @@ A horizontal rule represents a visual horizontal separator in a document.
 
 This type has no parameters.
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
----
-```
+    ---
 
 ##### Native
 
-```
-hr|{}|Foo bar
-```
+    hr|{}|Foo bar
 
 ---
 
@@ -200,19 +182,15 @@ An image represents a visual image embedded in a document.
 - `title` (string) - The title of the image
 - `uploadCacheID` (string) - A UUID identifying an image being uploaded
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-![Alt text](https://example.com/image.png "Title")
-```
+    ![Alt text](https://example.com/image.png "Title")
 
 ##### Native
 
-```
-im|{"width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
-```
+    im|{"width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
 
 ---
 
@@ -227,19 +205,15 @@ A line that defines a link referred to elsewhere in the document.
 - `name` (string) - The name of this link definition
 - `url` (string) - The URL that this link points to
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-[Google]: https://www.google.com
-```
+    [Google]: https://www.google.com
 
 ##### Native
 
-```
-ld|{"name":"foo","url":"foo"}|Foo bar
-```
+    ld|{"name":"foo","url":"foo"}|Foo bar
 
 ---
 
@@ -253,19 +227,15 @@ An ordered list item represents an item in a list whose order is important.
 
 - `level` (number) - The level of nesting of this list item, from 1 to 6
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-1. Chapter One
-```
+    1. Chapter One
 
 ##### Native
 
-```
-ol|{"level":1}|Foo bar
-```
+    ol|{"level":1}|Foo bar
 
 ---
 
@@ -277,19 +247,15 @@ A plain paragraph of text.
 
 This type has no parameters.
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-This is a paragraph.
-```
+    This is a paragraph.
 
 ##### Native
 
-```
-pg|{}|Foo bar
-```
+    pg|{}|Foo bar
 
 ---
 
@@ -303,13 +269,11 @@ The title of a document, which comes from a level 1 header at the very beginning
 
 - `version` (number) - The version of the CanvasNative format this document uses
 
-#### Example
+### Examples
 
 ##### Native
 
-```
-ti|{"version":1}|Foo bar
-```
+    ti|{"version":1}|Foo bar
 
 ---
 
@@ -323,19 +287,15 @@ An unordered list item represents an item in an unordered list.
 
 - `level` (number) - The level of nesting of this list item, from 1 to 6
 
-#### Example
+### Examples
 
 ##### Markdown
 
-```
-- Foo
-```
+    - Foo
 
 ##### Native
 
-```
-ul|{"level":1}|Foo bar
-```
+    ul|{"level":1}|Foo bar
 
 ---
 

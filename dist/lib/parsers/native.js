@@ -37,7 +37,7 @@ function parse(native) {
     for (var _iterator = sourceLines[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var sourceLine = _step.value;
 
-      var line = undefined;
+      var line = void 0;
 
       var _iteratorNormalCompletion2 = true;
       var _didIteratorError2 = false;

@@ -34,18 +34,12 @@ for (const type in types) {
   const lineType = types[type];
   lineType.type = type;
 
-  typesMarkdown += makeString(4, `
-    ### ${lineType.title}
-
-    ${lineType.description}
-    #### Parameters
-
-    ${formatParameters(lineType.parameters)}
-    #### Example
-
-    ${formatExamples(lineType)}
-
-    ---`) + '\n\n';
+  typesMarkdown += `### ${lineType.title}\n\n`
+  typesMarkdown += lineType.description + "\n"
+  typesMarkdown += "#### Parameters\n\n"
+  typesMarkdown += formatParameters(lineType.parameters) + "\n"
+  typesMarkdown += "### Examples\n\n"
+  typesMarkdown += formatExamples(lineType) + "\n\n---\n\n"
 }
 
 FS.writeFileSync(Path.join(__dirname, '../README.md'),
@@ -54,12 +48,7 @@ FS.writeFileSync(Path.join(__dirname, '../README.md'),
     .concat(typesMarkdown));
 
 function buildNative(type) {
-  return makeString(4, `
-    ##### Native
-
-    \`\`\`
-    ${type.typeKey}${SEPARATOR}${buildNativeParameters(type.parameters)}${SEPARATOR}Foo bar
-    \`\`\``);
+  return `##### Native\n\n    ${type.typeKey}${SEPARATOR}${buildNativeParameters(type.parameters)}${SEPARATOR}Foo bar`;
 }
 
 function buildNativeParameters(parameters) {
@@ -102,12 +91,8 @@ function formatExamples(type) {
 
   if (type.examples.markdown) {
     didMarkdown = true;
-    markdown += makeString(6, `
-      ##### Markdown
-
-      \`\`\`
-      ${type.examples.markdown}
-      \`\`\``);
+    let md = type.examples.markdown.split("\n").join("\n    ")
+    markdown += `##### Markdown\n\n    ${md}`
   }
 
   markdown += (didMarkdown ? '\n\n' : '') + buildNative(type);
@@ -141,12 +126,4 @@ function formatParameters(parameters) {
   }
 
   return markdown;
-}
-
-function makeString(spaces, string) {
-  return string
-    .split('\n')
-    .map(line => line.replace(new RegExp(`^ {${spaces}}`), ''))
-    .join('\n')
-    .trim();
 }
