@@ -176,6 +176,7 @@ An image represents a visual image embedded in a document.
 
 ##### Optional
 
+- `url` (string) - undefined
 - `width` (number) - The width, in pixels, of the image
 - `height` (number) - The height, in pixels, of the image
 - `alt` (string) - The alt text to display on top of the image
@@ -190,7 +191,7 @@ An image represents a visual image embedded in a document.
 
 ##### Native
 
-    im|{"width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
+    im|{"url":"https://example.com/image.png","width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
 
 ---
 

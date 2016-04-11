@@ -102,13 +102,14 @@ puts &quot;hi&quot;
 <h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>---</code></pre><h5>Native</h5><pre class="prettyprint source"><code>hr|{}|Foo bar</code></pre><hr>
 <h3>Image</h3><p>An image represents a visual image embedded in a document.</p>
 <h4>Parameters</h4><h5>Optional</h5><ul>
+<li><code>url</code> (string) - undefined</li>
 <li><code>width</code> (number) - The width, in pixels, of the image</li>
 <li><code>height</code> (number) - The height, in pixels, of the image</li>
 <li><code>alt</code> (string) - The alt text to display on top of the image</li>
 <li><code>title</code> (string) - The title of the image</li>
 <li><code>uploadCacheID</code> (string) - A UUID identifying an image being uploaded</li>
 </ul>
-<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>![Alt text](https://example.com/image.png &quot;Title&quot;)</code></pre><h5>Native</h5><pre class="prettyprint source"><code>im|{&quot;width&quot;:800,&quot;height&quot;:600,&quot;alt&quot;:&quot;foo&quot;,&quot;title&quot;:&quot;foo&quot;,&quot;uploadCacheID&quot;:&quot;foo&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>![Alt text](https://example.com/image.png &quot;Title&quot;)</code></pre><h5>Native</h5><pre class="prettyprint source"><code>im|{&quot;url&quot;:&quot;https://example.com/image.png&quot;,&quot;width&quot;:800,&quot;height&quot;:600,&quot;alt&quot;:&quot;foo&quot;,&quot;title&quot;:&quot;foo&quot;,&quot;uploadCacheID&quot;:&quot;foo&quot;}|Foo bar</code></pre><hr>
 <h3>Link Definition</h3><p>A line that defines a link referred to elsewhere in the document.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>name</code> (string) - The name of this link definition</li>

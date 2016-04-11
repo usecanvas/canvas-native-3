@@ -80,6 +80,11 @@
     "parameters": {
       "optional": [
         {
+          "name": "url",
+          "type": "string",
+          "example": "https://example.com/image.png"
+        },
+        {
           "name": "width",
           "type": "number",
           "example": 800,
