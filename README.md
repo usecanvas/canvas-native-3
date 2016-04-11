@@ -98,7 +98,7 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 
 ##### Native
 
-    cl|{"level":1,"complete":"f"}|Foo bar
+    cl|{"level":1,"complete":false}|Foo bar
 
 ---
 
@@ -271,6 +271,10 @@ The title of a document, which comes from a level 1 header at the very beginning
 - `version` (number) - The version of the CanvasNative format this document uses
 
 ### Examples
+
+##### Markdown
+
+    # Title
 
 ##### Native
 

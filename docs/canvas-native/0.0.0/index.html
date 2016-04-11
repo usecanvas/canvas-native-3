@@ -84,7 +84,7 @@ information about the line.</p>
 <li><code>level</code> (number) - The level of nesting of this checklist item, from 1 to 6</li>
 <li><code>complete</code> (boolean) - Whether this item is complete</li>
 </ul>
-<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>- [ ] Buy eggs</code></pre><h5>Native</h5><pre class="prettyprint source"><code>cl|{&quot;level&quot;:1,&quot;complete&quot;:&quot;f&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>- [ ] Buy eggs</code></pre><h5>Native</h5><pre class="prettyprint source"><code>cl|{&quot;level&quot;:1,&quot;complete&quot;:false}|Foo bar</code></pre><hr>
 <h3>Code Line</h3><p>A code line represents a line of code, typically in a block of other lines of code.</p>
 <h4>Parameters</h4><h5>Optional</h5><ul>
 <li><code>language</code> (string) - The language the code line is written in</li>
@@ -128,7 +128,7 @@ puts &quot;hi&quot;
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>version</code> (number) - The version of the CanvasNative format this document uses</li>
 </ul>
-<h3>Examples</h3><h5>Native</h5><pre class="prettyprint source"><code>ti|{&quot;version&quot;:1}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code># Title</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ti|{&quot;version&quot;:1}|Foo bar</code></pre><hr>
 <h3>Unordered List Item</h3><p>An unordered list item represents an item in an unordered list.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>level</code> (number) - The level of nesting of this list item, from 1 to 6</li>
