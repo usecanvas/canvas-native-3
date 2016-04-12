@@ -19,7 +19,10 @@ describe('formatters/summary', () => {
 
     const summary = format(native);
 
-    expect(summary).to.eql('Foo. Bar... Baz qux asdf. Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz Foobarbaz.');
+    expect(summary).to.eql(`Foo. Bar... Baz qux asdf. Foobarbaz Foobarbaz \
+Foobarbaz Foobarbaz Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz \
+Foobarbaz Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz Foobarbaz \
+Foobarbaz Foobarbaz. Foobarbaz Foobarbaz Foobarbaz Foobarbaz.`);
   });
 
   ['!', '?'].forEach(punct => {
