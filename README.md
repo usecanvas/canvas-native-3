@@ -75,7 +75,7 @@ This type has no parameters.
 
 ##### Native
 
-    bq|{}|Foo bar
+    bq|{}|Hello, world!
 
 ---
 
@@ -98,7 +98,7 @@ A checklist item represents an item in a checklist. It can be nested, and may or
 
 ##### Native
 
-    cl|{"level":1,"complete":false}|Foo bar
+    cl|{"level":1,"complete":false}|Buy eggs
 
 ---
 
@@ -122,7 +122,7 @@ A code line represents a line of code, typically in a block of other lines of co
 
 ##### Native
 
-    co|{"language":"ruby"}|Foo bar
+    co|{"language":"ruby"}|puts "hi"
 
 ---
 
@@ -144,7 +144,7 @@ A heading represents a line of heading text at a specific level, from one to six
 
 ##### Native
 
-    hd|{"level":1}|Foo bar
+    hd|{"level":1}|Section Title
 
 ---
 
@@ -164,7 +164,7 @@ This type has no parameters.
 
 ##### Native
 
-    hr|{}|Foo bar
+    hr|{}|
 
 ---
 
@@ -191,7 +191,7 @@ An image represents a visual image embedded in a document.
 
 ##### Native
 
-    im|{"url":"https://example.com/image.png","width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|Foo bar
+    im|{"url":"https://example.com/image.png","width":800,"height":600,"alt":"foo","title":"foo","uploadCacheID":"foo"}|
 
 ---
 
@@ -214,7 +214,7 @@ A line that defines a link referred to elsewhere in the document.
 
 ##### Native
 
-    ld|{"name":"foo","url":"foo"}|Foo bar
+    ld|{"name":"foo","url":"foo"}|
 
 ---
 
@@ -236,7 +236,7 @@ An ordered list item represents an item in a list whose order is important.
 
 ##### Native
 
-    ol|{"level":1}|Foo bar
+    ol|{"level":1}|Chapter One
 
 ---
 
@@ -256,7 +256,7 @@ This type has no parameters.
 
 ##### Native
 
-    pg|{}|Foo bar
+    pg|{}|This is a paragraph.
 
 ---
 
@@ -278,7 +278,7 @@ The title of a document, which comes from a level 1 header at the very beginning
 
 ##### Native
 
-    ti|{"version":1}|Foo bar
+    ti|{"version":1}|Title
 
 ---
 
@@ -300,7 +300,7 @@ An unordered list item represents an item in an unordered list.
 
 ##### Native
 
-    ul|{"level":1}|Foo bar
+    ul|{"level":1}|Foo
 
 ---
 

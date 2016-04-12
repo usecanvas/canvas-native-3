@@ -5,6 +5,7 @@ blockquote-line:
   typeKey: bq
   examples:
     markdown: "> Hello, world!"
+    content: "Hello, world!"
 checklist-item:
   title: Checklist Item
   description: >
@@ -21,6 +22,7 @@ checklist-item:
         description: Whether this item is complete
   examples:
     markdown: "- [ ] Buy eggs"
+    content: "Buy eggs"
 code-line:
   title: Code Line
   description: >
@@ -36,6 +38,7 @@ code-line:
         description: The language the code line is written in
   examples:
     markdown: "``` ruby\nputs \"hi\"\n```"
+    content: "puts \"hi\""
 heading:
   title: Heading
   description: >
@@ -49,6 +52,7 @@ heading:
         description: The level of heading this is, from 1 to 6
   examples:
     markdown: "# Section Title"
+    content: "Section Title"
 horizontal-rule:
   title: Horizontal Rule
   description: >
@@ -56,6 +60,7 @@ horizontal-rule:
   typeKey: hr
   examples:
     markdown: "---"
+    content: ""
 image:
   title: Image
   description: >
@@ -85,6 +90,7 @@ image:
         description: A UUID identifying an image being uploaded
   examples:
     markdown: "![Alt text](https://example.com/image.png \"Title\")"
+    content: ""
 link-definition:
   title: Link Definition
   description: >
@@ -100,6 +106,7 @@ link-definition:
         description: The URL that this link points to
   examples:
     markdown: "[Google]: https://www.google.com"
+    content: ""
 ordered-list-item:
   title: Ordered List Item
   description: >
@@ -112,6 +119,7 @@ ordered-list-item:
         description: The level of nesting of this list item, from 1 to 6
   examples:
     markdown: "1. Chapter One"
+    content: "Chapter One"
 paragraph:
   title: Paragraph
   description: >
@@ -119,6 +127,7 @@ paragraph:
   typeKey: pg
   examples:
     markdown: "This is a paragraph."
+    content: "This is a paragraph."
 title:
   title: Title
   description: >
@@ -132,6 +141,7 @@ title:
         description: The version of the CanvasNative format this document uses
   examples:
     markdown: "# Title"
+    content: "Title"
 unordered-list-item:
   title: Unordered List Item
   description: >
@@ -144,3 +154,4 @@ unordered-list-item:
         description: The level of nesting of this list item, from 1 to 6
   examples:
     markdown: "- Foo"
+    content: "Foo"

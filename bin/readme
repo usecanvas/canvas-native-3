@@ -48,8 +48,16 @@ FS.writeFileSync(Path.join(__dirname, '../README.md'),
     .concat(typesMarkdown));
 
 function buildNative(type) {
-  return "##### Native\n\n" +
-    `    ${type.typeKey}${SEPARATOR}${buildNativeParameters(type.parameters)}${SEPARATOR}Foo bar`;
+  var output = "##### Native\n\n";
+  output += `    ${type.typeKey}${SEPARATOR}${buildNativeParameters(type.parameters)}${SEPARATOR}`;
+
+  if (type.examples != null && type.examples.content != null) {
+    output += type.examples.content;
+  } else {
+    output += "Foo bar";
+  }
+
+  return output;
 }
 
 function buildNativeParameters(parameters) {
