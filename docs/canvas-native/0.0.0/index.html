@@ -78,59 +78,62 @@ information about the line.</p>
 <p>So, a line of Ruby code might look like this:</p>
 <pre class="prettyprint source"><code>co|{&quot;language&quot;:&quot;ruby&quot;}|class MyClass extends OtherClass</code></pre><h3>Blockquote Line</h3><p>A line of a quote pulled from an outside source.</p>
 <h4>Parameters</h4><p>This type has no parameters.</p>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>> Hello, world!</code></pre><h5>Native</h5><pre class="prettyprint source"><code>bq|{}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>> Hello, world!</code></pre><h5>Native</h5><pre class="prettyprint source"><code>bq|{}|Hello, world!</code></pre><hr>
 <h3>Checklist Item</h3><p>A checklist item represents an item in a checklist. It can be nested, and may or may not be checked.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>level</code> (number) - The level of nesting of this checklist item, from 1 to 6</li>
 <li><code>complete</code> (boolean) - Whether this item is complete</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>- [ ] Buy eggs</code></pre><h5>Native</h5><pre class="prettyprint source"><code>cl|{&quot;level&quot;:1,&quot;complete&quot;:&quot;f&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>- [ ] Buy eggs</code></pre><h5>Native</h5><pre class="prettyprint source"><code>cl|{&quot;level&quot;:1,&quot;complete&quot;:false}|Buy eggs</code></pre><hr>
 <h3>Code Line</h3><p>A code line represents a line of code, typically in a block of other lines of code.</p>
 <h4>Parameters</h4><h5>Optional</h5><ul>
 <li><code>language</code> (string) - The language the code line is written in</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>helloWorld();</code></pre><h5>Native</h5><pre class="prettyprint source"><code>co|{&quot;language&quot;:&quot;ruby&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>``` ruby
+puts &quot;hi&quot;
+```</code></pre><h5>Native</h5><pre class="prettyprint source"><code>co|{&quot;language&quot;:&quot;ruby&quot;}|puts &quot;hi&quot;</code></pre><hr>
 <h3>Heading</h3><p>A heading represents a line of heading text at a specific level, from one to six.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>level</code> (number) - The level of heading this is, from 1 to 6</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code># Section Title</code></pre><h5>Native</h5><pre class="prettyprint source"><code>hd|{&quot;level&quot;:1}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code># Section Title</code></pre><h5>Native</h5><pre class="prettyprint source"><code>hd|{&quot;level&quot;:1}|Section Title</code></pre><hr>
 <h3>Horizontal Rule</h3><p>A horizontal rule represents a visual horizontal separator in a document.</p>
 <h4>Parameters</h4><p>This type has no parameters.</p>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>---</code></pre><h5>Native</h5><pre class="prettyprint source"><code>hr|{}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>---</code></pre><h5>Native</h5><pre class="prettyprint source"><code>hr|{}|</code></pre><hr>
 <h3>Image</h3><p>An image represents a visual image embedded in a document.</p>
 <h4>Parameters</h4><h5>Optional</h5><ul>
+<li><code>url</code> (string) - undefined</li>
 <li><code>width</code> (number) - The width, in pixels, of the image</li>
 <li><code>height</code> (number) - The height, in pixels, of the image</li>
 <li><code>alt</code> (string) - The alt text to display on top of the image</li>
 <li><code>title</code> (string) - The title of the image</li>
 <li><code>uploadCacheID</code> (string) - A UUID identifying an image being uploaded</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>![Alt text](https://example.com/image.png &quot;Title&quot;)</code></pre><h5>Native</h5><pre class="prettyprint source"><code>im|{&quot;width&quot;:800,&quot;height&quot;:600,&quot;alt&quot;:&quot;foo&quot;,&quot;title&quot;:&quot;foo&quot;,&quot;uploadCacheID&quot;:&quot;foo&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>![Alt text](https://example.com/image.png &quot;Title&quot;)</code></pre><h5>Native</h5><pre class="prettyprint source"><code>im|{&quot;url&quot;:&quot;https://example.com/image.png&quot;,&quot;width&quot;:800,&quot;height&quot;:600,&quot;alt&quot;:&quot;foo&quot;,&quot;title&quot;:&quot;foo&quot;,&quot;uploadCacheID&quot;:&quot;foo&quot;}|</code></pre><hr>
 <h3>Link Definition</h3><p>A line that defines a link referred to elsewhere in the document.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>name</code> (string) - The name of this link definition</li>
 <li><code>url</code> (string) - The URL that this link points to</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>[Google]: https://www.google.com</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ld|{&quot;name&quot;:&quot;foo&quot;,&quot;url&quot;:&quot;foo&quot;}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>[Google]: https://www.google.com</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ld|{&quot;name&quot;:&quot;foo&quot;,&quot;url&quot;:&quot;foo&quot;}|</code></pre><hr>
 <h3>Ordered List Item</h3><p>An ordered list item represents an item in a list whose order is important.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>level</code> (number) - The level of nesting of this list item, from 1 to 6</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>1. Chapter One</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ol|{&quot;level&quot;:1}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>1. Chapter One</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ol|{&quot;level&quot;:1}|Chapter One</code></pre><hr>
 <h3>Paragraph</h3><p>A plain paragraph of text.</p>
 <h4>Parameters</h4><p>This type has no parameters.</p>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>This is a paragraph.</code></pre><h5>Native</h5><pre class="prettyprint source"><code>pg|{}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>This is a paragraph.</code></pre><h5>Native</h5><pre class="prettyprint source"><code>pg|{}|This is a paragraph.</code></pre><hr>
 <h3>Title</h3><p>The title of a document, which comes from a level 1 header at the very beginning of parsed Markdown, if one is present.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>version</code> (number) - The version of the CanvasNative format this document uses</li>
 </ul>
-<h4>Example</h4><h5>Native</h5><pre class="prettyprint source"><code>ti|{&quot;version&quot;:1}|Foo bar</code></pre><hr>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code># Title</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ti|{&quot;version&quot;:1}|Title</code></pre><hr>
 <h3>Unordered List Item</h3><p>An unordered list item represents an item in an unordered list.</p>
 <h4>Parameters</h4><h5>Required</h5><ul>
 <li><code>level</code> (number) - The level of nesting of this list item, from 1 to 6</li>
 </ul>
-<h4>Example</h4><h5>Markdown</h5><pre class="prettyprint source"><code>- Foo</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ul|{&quot;level&quot;:1}|Foo bar</code></pre><hr></article>
+<h3>Examples</h3><h5>Markdown</h5><pre class="prettyprint source"><code>- Foo</code></pre><h5>Native</h5><pre class="prettyprint source"><code>ul|{&quot;level&quot;:1}|Foo</code></pre><hr></article>
     </section>
 
 

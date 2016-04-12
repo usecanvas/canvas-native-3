@@ -4,7 +4,8 @@
     "description": "A line of a quote pulled from an outside source.\n",
     "typeKey": "bq",
     "examples": {
-      "markdown": "> Hello, world!"
+      "markdown": "> Hello, world!",
+      "content": "Hello, world!"
     }
   },
   "checklist-item": {
@@ -26,7 +27,8 @@
       ]
     },
     "examples": {
-      "markdown": "- [ ] Buy eggs"
+      "markdown": "- [ ] Buy eggs",
+      "content": "Buy eggs"
     }
   },
   "code-line": {
@@ -45,7 +47,8 @@
       ]
     },
     "examples": {
-      "markdown": "helloWorld();"
+      "markdown": "``` ruby\nputs \"hi\"\n```",
+      "content": "puts \"hi\""
     }
   },
   "heading": {
@@ -62,7 +65,8 @@
       ]
     },
     "examples": {
-      "markdown": "# Section Title"
+      "markdown": "# Section Title",
+      "content": "Section Title"
     }
   },
   "horizontal-rule": {
@@ -70,7 +74,8 @@
     "description": "A horizontal rule represents a visual horizontal separator in a document.\n",
     "typeKey": "hr",
     "examples": {
-      "markdown": "---"
+      "markdown": "---",
+      "content": ""
     }
   },
   "image": {
@@ -79,6 +84,11 @@
     "typeKey": "im",
     "parameters": {
       "optional": [
+        {
+          "name": "url",
+          "type": "string",
+          "example": "https://example.com/image.png"
+        },
         {
           "name": "width",
           "type": "number",
@@ -109,7 +119,8 @@
       ]
     },
     "examples": {
-      "markdown": "![Alt text](https://example.com/image.png \"Title\")"
+      "markdown": "![Alt text](https://example.com/image.png \"Title\")",
+      "content": ""
     }
   },
   "link-definition": {
@@ -131,7 +142,8 @@
       ]
     },
     "examples": {
-      "markdown": "[Google]: https://www.google.com"
+      "markdown": "[Google]: https://www.google.com",
+      "content": ""
     }
   },
   "ordered-list-item": {
@@ -148,7 +160,8 @@
       ]
     },
     "examples": {
-      "markdown": "1. Chapter One"
+      "markdown": "1. Chapter One",
+      "content": "Chapter One"
     }
   },
   "paragraph": {
@@ -156,7 +169,8 @@
     "description": "A plain paragraph of text.\n",
     "typeKey": "pg",
     "examples": {
-      "markdown": "This is a paragraph."
+      "markdown": "This is a paragraph.",
+      "content": "This is a paragraph."
     }
   },
   "title": {
@@ -173,7 +187,8 @@
       ]
     },
     "examples": {
-      "markdown": null
+      "markdown": "# Title",
+      "content": "Title"
     }
   },
   "unordered-list-item": {
@@ -190,7 +205,8 @@
       ]
     },
     "examples": {
-      "markdown": "- Foo"
+      "markdown": "- Foo",
+      "content": "Foo"
     }
   }
 }

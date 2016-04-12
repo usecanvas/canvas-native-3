@@ -5,6 +5,7 @@ blockquote-line:
   typeKey: bq
   examples:
     markdown: "> Hello, world!"
+    content: "Hello, world!"
 checklist-item:
   title: Checklist Item
   description: >
@@ -20,7 +21,8 @@ checklist-item:
         type: boolean
         description: Whether this item is complete
   examples:
-    markdown: - [ ] Buy eggs
+    markdown: "- [ ] Buy eggs"
+    content: "Buy eggs"
 code-line:
   title: Code Line
   description: >
@@ -35,7 +37,8 @@ code-line:
         example: ruby
         description: The language the code line is written in
   examples:
-    markdown: helloWorld();
+    markdown: "``` ruby\nputs \"hi\"\n```"
+    content: "puts \"hi\""
 heading:
   title: Heading
   description: >
@@ -49,13 +52,15 @@ heading:
         description: The level of heading this is, from 1 to 6
   examples:
     markdown: "# Section Title"
+    content: "Section Title"
 horizontal-rule:
   title: Horizontal Rule
   description: >
     A horizontal rule represents a visual horizontal separator in a document.
   typeKey: hr
   examples:
-    markdown: ---
+    markdown: "---"
+    content: ""
 image:
   title: Image
   description: >
@@ -63,6 +68,9 @@ image:
   typeKey: im
   parameters:
     optional:
+      - name: url
+        type: string
+        example: https://example.com/image.png
       - name: width
         type: number
         example: 800
@@ -82,6 +90,7 @@ image:
         description: A UUID identifying an image being uploaded
   examples:
     markdown: "![Alt text](https://example.com/image.png \"Title\")"
+    content: ""
 link-definition:
   title: Link Definition
   description: >
@@ -97,6 +106,7 @@ link-definition:
         description: The URL that this link points to
   examples:
     markdown: "[Google]: https://www.google.com"
+    content: ""
 ordered-list-item:
   title: Ordered List Item
   description: >
@@ -108,14 +118,16 @@ ordered-list-item:
         type: number
         description: The level of nesting of this list item, from 1 to 6
   examples:
-    markdown: 1. Chapter One
+    markdown: "1. Chapter One"
+    content: "Chapter One"
 paragraph:
   title: Paragraph
   description: >
     A plain paragraph of text.
   typeKey: pg
   examples:
-    markdown: This is a paragraph.
+    markdown: "This is a paragraph."
+    content: "This is a paragraph."
 title:
   title: Title
   description: >
@@ -128,7 +140,8 @@ title:
         type: number
         description: The version of the CanvasNative format this document uses
   examples:
-    markdown: # Title
+    markdown: "# Title"
+    content: "Title"
 unordered-list-item:
   title: Unordered List Item
   description: >
@@ -140,4 +153,5 @@ unordered-list-item:
         type: number
         description: The level of nesting of this list item, from 1 to 6
   examples:
-    markdown: - Foo
+    markdown: "- Foo"
+    content: "Foo"

@@ -38,7 +38,7 @@ function parse(markdown) {
   var skipEmptyLine = true;
   for (var index = 0, len = sourceLines.length; index < len; index++) {
     var sourceLine = sourceLines[index];
-    var line = undefined;
+    var line = void 0;
 
     // Ignore every odd empty line, except in code blocks
     if (!sourceLine && skipEmptyLine && groupType !== _codeLine2.default.groupType) {
@@ -48,7 +48,7 @@ function parse(markdown) {
       skipEmptyLine = true;
     }
 
-    var fenceMatch = undefined;
+    var fenceMatch = void 0;
     if (fenceMatch = _codeLine2.default.matchFence(sourceLine)) {
       if (groupType === _codeLine2.default.groupType) {
         groupType = null;
