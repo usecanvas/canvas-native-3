@@ -10,7 +10,7 @@ var _listItem = require('./list-item');
 
 var _listItem2 = _interopRequireDefault(_listItem);
 
-var _xregexp = require('xregexp');
+var _xregexp = require('../../vendor/xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 

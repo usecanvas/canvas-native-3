@@ -1,26 +1,30 @@
 BABEL = node_modules/.bin/babel
 JSDOC = node_modules/.bin/jsdoc
 YAML = node_modules/.bin/yaml2json
+BROWSERIFY = node_modules/.bin/browserify
 
 .PHONY: test
 
 all: build README.md
 
-build: dist docs README.md
+build: dist dist/canvas-native.js docs README.md
 
-dist: lib/types/index.json lib/**/* package.json
+dist: lib/types/meta.json lib/**/* package.json
 	rm -rf dist/
 	$(BABEL) lib -d dist/lib
-	cp lib/types/index.json dist/lib/types/index.json
+	cp lib/types/meta.json dist/lib/types/meta.json
+
+dist/canvas-native.js: dist
+	$(BROWSERIFY) lib/index.js -t babelify -o dist/canvas-native.js --standalone CanvasNative
 
 docs: lib/**/* package.json README.md
 	rm -rf docs
 	$(JSDOC) lib/**/* -c .jsdocrc
 
-lib/types/index.json: lib/types/index.yaml
-	$(YAML) --pretty lib/types/index.yaml > lib/types/index.json
+lib/types/meta.json: lib/types/meta.yaml
+	$(YAML) --pretty lib/types/meta.yaml > lib/types/meta.json
 
-README.md: bin/templates/overview.md.hbs bin/readme lib/types/index.yaml lib/constants.json
+README.md: bin/templates/overview.md.hbs bin/readme lib/types/meta.yaml lib/constants.json
 	bin/readme
 
 test:

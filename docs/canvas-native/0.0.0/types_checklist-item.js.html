@@ -47,7 +47,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import ListItem from './list-item';
-import XRegExp  from 'xregexp';
+import XRegExp  from '../../vendor/xregexp';
 
 /**
  * A line representing an item in a checklist
@@ -65,7 +65,10 @@ export default class ChecklistItem extends ListItem {
    * @see Type.markdownPattern
    */
   static get markdownPattern() {
-    return XRegExp(`^(?&lt;meta_whitespace> *)[\\-\\+\\*] \\[(?&lt;meta_check>[xX ])\\] (?&lt;content>.*)`);
+    return XRegExp(`^(?&lt;meta_whitespace>\\ *)    # Leading whitespace
+                    [\\-\\+\\*]\\                # Delimiter and a space
+                    \\[(?&lt;meta_check>[xX ])\\]\\ # Checkmark + space
+                    (?&lt;content>.*)               # Content`, 'x');
   }
 
   /**

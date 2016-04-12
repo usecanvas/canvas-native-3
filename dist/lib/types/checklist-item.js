@@ -10,7 +10,7 @@ var _listItem = require('./list-item');
 
 var _listItem2 = _interopRequireDefault(_listItem);
 
-var _xregexp = require('xregexp');
+var _xregexp = require('../../vendor/xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 
@@ -75,7 +75,7 @@ var ChecklistItem = function (_ListItem) {
   }, {
     key: 'markdownPattern',
     get: function get() {
-      return (0, _xregexp2.default)('^(?<meta_whitespace> *)[\\-\\+\\*] \\[(?<meta_check>[xX ])\\] (?<content>.*)');
+      return (0, _xregexp2.default)('^(?<meta_whitespace>\\ *)    # Leading whitespace\n                    [\\-\\+\\*]\\                # Delimiter and a space\n                    \\[(?<meta_check>[xX ])\\]\\ # Checkmark + space\n                    (?<content>.*)               # Content', 'x');
     }
 
     /**

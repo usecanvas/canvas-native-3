@@ -10,7 +10,7 @@ var _type = require('./type');
 
 var _type2 = _interopRequireDefault(_type);
 
-var _xregexp = require('xregexp');
+var _xregexp = require('../../vendor/xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 

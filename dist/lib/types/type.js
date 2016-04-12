@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ = require('.');
+var _meta = require('./meta.json');
 
-var _2 = _interopRequireDefault(_);
+var _meta2 = _interopRequireDefault(_meta);
 
-var _xregexp = require('xregexp');
+var _xregexp = require('../../vendor/xregexp');
 
 var _xregexp2 = _interopRequireDefault(_xregexp);
 
@@ -226,7 +226,7 @@ var Type = function () {
   }, {
     key: 'groupType',
     get: function get() {
-      return _2.default[this.type].groupType || 'canvas';
+      return _meta2.default[this.type].groupType || 'canvas';
     }
 
     /**
@@ -249,7 +249,7 @@ var Type = function () {
   }, {
     key: 'typeKey',
     get: function get() {
-      return _2.default[this.type].typeKey;
+      return _meta2.default[this.type].typeKey;
     }
 
     /**
